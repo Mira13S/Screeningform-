@@ -1,0 +1,17 @@
+type User {
+  name: String
+}
+
+type Project {
+  name: String
+  tagline: String
+  contributors: [User]
+}
+
+type Query {
+  projects(id: ID, name: String): [Project!]
+}
+
+type Mutation {
+  createProject(id: ID): Project
+}

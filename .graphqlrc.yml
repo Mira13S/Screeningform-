@@ -1,0 +1,27 @@
+projects:
+  default:
+    config:
+      assumeValidSDL: true
+      assumeValid: true
+    schema:
+      # - ${GQL_URL:http://localhost:3500/graphql}
+      - test.gql
+    documents: src/**/*.tsx
+    extensions:
+      codegen:
+        generates:
+          schema.graphql:
+            plugins:
+              - schema-ast
+          ./src/generated/gql.types.generated.ts:
+            plugins:
+              - typescript
+            config:
+              namingConvention:
+                enumValues: keep
+                typeNames: change-case#pascalCase
+          ./src/generated/:
+            preset: client
+            presetConfig:
+              fragmentMasking:
+                unmaskFunctionName: "getFragmentData"
