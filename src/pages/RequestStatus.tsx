@@ -19,6 +19,8 @@ import {
 } from "@/components/ui/tooltip";
 import SideNavBar from "@/components/SideNavBar";
 import Header from "@/components/Header";
+import { StatusIcon } from "@/components/StatusIcon";
+import { useNavigate } from "react-router-dom";
 
 // This would typically come from an API or state management
 const screeningsData = [
@@ -29,7 +31,7 @@ const screeningsData = [
     responsibleAttorney: "Smith, John",
     clientNameMatterName: "Good Client 2024 General Matter",
     risk: "low",
-    conflicts: "none",
+    conflicts: "low",
     clientNumber: "11111",
   },
   {
@@ -39,7 +41,7 @@ const screeningsData = [
     responsibleAttorney: "Smith, John",
     clientNameMatterName: "New Client New Matter",
     risk: "medium",
-    conflicts: "pending",
+    conflicts: "medium",
     clientNumber: "Pending",
   },
   {
@@ -49,7 +51,7 @@ const screeningsData = [
     responsibleAttorney: "Smith, John",
     clientNameMatterName: "Denied Client General Matter",
     risk: "high",
-    conflicts: "conflict",
+    conflicts: "high",
     clientNumber: "Pending",
   },
 ];
@@ -62,7 +64,7 @@ const intakeRequestsData = [
     responsibleAttorney: "Smith, John",
     clientNameMatterName: "Good Client 2024 General Matter",
     risk: "low",
-    conflicts: "none",
+    conflicts: "low",
     clientNumber: "11111",
     matterNumber: "1111",
     approval: "approved",
@@ -74,10 +76,10 @@ const intakeRequestsData = [
     responsibleAttorney: "Smith, John",
     clientNameMatterName: "New Client New Matter",
     risk: "medium",
-    conflicts: "pending",
+    conflicts: "low",
     clientNumber: "Pending",
     matterNumber: "Pending",
-    approval: "pending",
+    approval: "evaluation",
   },
   {
     request: "333333-I",
@@ -86,83 +88,14 @@ const intakeRequestsData = [
     responsibleAttorney: "Smith, John",
     clientNameMatterName: "Denied Client General Matter",
     risk: "high",
-    conflicts: "conflict",
+    conflicts: "high",
     clientNumber: "N/A",
     matterNumber: "N/A",
     approval: "denied",
   },
 ];
-
-const RiskIcon = ({ risk }: { risk: string }) => {
-  const colors = {
-    low: "bg-green-500",
-    medium: "bg-yellow-500",
-    high: "bg-red-500",
-  };
-
-  return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>
-          <div
-            className={`w-6 h-6 rounded-full ${colors[risk as keyof typeof colors]}`}
-          />
-        </TooltipTrigger>
-        <TooltipContent>
-          <p className="capitalize">{risk} Risk</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  );
-};
-
-const ConflictsIcon = ({ conflicts }: { conflicts: string }) => {
-  const icons = {
-    none: "bg-green-500",
-    pending: "bg-yellow-500",
-    conflict: "bg-red-500",
-  };
-
-  return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>
-          <div
-            className={`w-6 h-6 rounded-full ${icons[conflicts as keyof typeof icons]}`}
-          />
-        </TooltipTrigger>
-        <TooltipContent>
-          <p className="capitalize">{conflicts}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  );
-};
-
-const ApprovalIcon = ({ approval }: { approval: string }) => {
-  const icons = {
-    approved: <div className="w-6 h-6 rounded-full bg-green-500" />,
-    pending: <div className="w-6 h-6 rounded-full bg-gray-300" />,
-    denied: (
-      <div className="w-6 h-6 text-red-500">
-        <Trash2 />
-      </div>
-    ),
-  };
-
-  return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>{icons[approval as keyof typeof icons]}</TooltipTrigger>
-        <TooltipContent>
-          <p className="capitalize">{approval}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  );
-};
-
 export function RequestStatus() {
+  const navigate = useNavigate();
   return (
     <div>
       <Header />
@@ -191,20 +124,39 @@ export function RequestStatus() {
               <TableBody>
                 {screeningsData.map((item) => (
                   <TableRow key={item.request}>
-                    <TableCell>{item.request}</TableCell>
-                    <TableCell>{item.requestDate}</TableCell>
-                    <TableCell>{item.requester}</TableCell>
-                    <TableCell>{item.responsibleAttorney}</TableCell>
-                    <TableCell>{item.clientNameMatterName}</TableCell>
-                    <TableCell>
-                      <RiskIcon risk={item.risk} />
+                    <TableCell onClick={() => navigate("/screeningform")}>
+                      {item.request}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/screeningform")}>
+                      {item.requestDate}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/screeningform")}>
+                      {item.requester}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/screeningform")}>
+                      {item.responsibleAttorney}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/screeningform")}>
+                      {item.clientNameMatterName}
                     </TableCell>
                     <TableCell>
-                      <ConflictsIcon conflicts={item.conflicts} />
+                      <StatusIcon type="risk" level={item.risk} size={24} />
                     </TableCell>
-                    <TableCell>{item.clientNumber}</TableCell>
                     <TableCell>
-                      <Button variant="outline">
+                      <StatusIcon
+                        type="conflicts"
+                        level={item.conflicts}
+                        size={24}
+                      />
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/screeningform")}>
+                      {item.clientNumber}
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        variant="outline"
+                        onClick={() => navigate("/intake")}
+                      >
                         {item.risk === "high"
                           ? "Complete Intake"
                           : "Start Intake"}
@@ -220,7 +172,7 @@ export function RequestStatus() {
               </TableBody>
             </Table>
           </div>
-          <div className="flex justify-center mt-4">
+          {/* <div className="flex justify-center mt-4">
             <Button variant="outline" size="sm">
               1
             </Button>
@@ -242,7 +194,7 @@ export function RequestStatus() {
             <Button variant="ghost" size="sm">
               20
             </Button>
-          </div>
+          </div>*/}
         </div>
 
         <div>
@@ -266,21 +218,43 @@ export function RequestStatus() {
               <TableBody>
                 {intakeRequestsData.map((item) => (
                   <TableRow key={item.request}>
-                    <TableCell>{item.request}</TableCell>
-                    <TableCell>{item.requestDate}</TableCell>
-                    <TableCell>{item.requester}</TableCell>
-                    <TableCell>{item.responsibleAttorney}</TableCell>
-                    <TableCell>{item.clientNameMatterName}</TableCell>
-                    <TableCell>
-                      <RiskIcon risk={item.risk} />
+                    <TableCell onClick={() => navigate("/clientmatterdetails")}>
+                      {item.request}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/clientmatterdetails")}>
+                      {item.requestDate}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/clientmatterdetails")}>
+                      {item.requester}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/clientmatterdetails")}>
+                      {item.responsibleAttorney}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/clientmatterdetails")}>
+                      {item.clientNameMatterName}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/riskdetails")}>
+                      <StatusIcon type="risk" level={item.risk} size={24} />
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/conflictdetails")}>
+                      <StatusIcon
+                        type="conflicts"
+                        level={item.conflicts}
+                        size={24}
+                      />
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/clientmatterdetails")}>
+                      {item.clientNumber}
+                    </TableCell>
+                    <TableCell onClick={() => navigate("/clientmatterdetails")}>
+                      {item.matterNumber}
                     </TableCell>
                     <TableCell>
-                      <ConflictsIcon conflicts={item.conflicts} />
-                    </TableCell>
-                    <TableCell>{item.clientNumber}</TableCell>
-                    <TableCell>{item.matterNumber}</TableCell>
-                    <TableCell>
-                      <ApprovalIcon approval={item.approval} />
+                      <StatusIcon
+                        type="approvals"
+                        level={item.approval}
+                        size={24}
+                      />
                     </TableCell>
                   </TableRow>
                 ))}

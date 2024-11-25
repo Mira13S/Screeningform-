@@ -16,8 +16,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 import SideNavBar from "@/components/SideNavBar";
 import Header from "@/components/Header";
+import { useNavigate } from "react-router-dom";
+import { StatusIcon } from "@/components/StatusIcon";
 
 const IntakeForm = () => {
+  const navigate=useNavigate();
   return (
     <div className="flex">
       <SideNavBar />
@@ -25,7 +28,7 @@ const IntakeForm = () => {
         {" "}
         {/* Add margin to account for fixed sidebar */}
         <Header />
-        <div className="max-w-7xl mx-auto p-4">
+        <div className="max-w-full mx-auto p-4">
           {/* Header row */}
           <div className="flex justify-between items-center mb-6 gap-2">
             <h1 className="text-xl font-bold">Intake Form</h1>
@@ -44,7 +47,7 @@ const IntakeForm = () => {
               <Button variant="outline" size="sm">
                 Clone Matter
               </Button>
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={()=>navigate("/")}>
                 Submit Request
               </Button>
             </div>
@@ -52,68 +55,53 @@ const IntakeForm = () => {
 
           {/* Status Bar */}
           <div className="w-full mb-6">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableCell className="font-semibold">Request</TableCell>
-                  <TableCell className="font-semibold">Request Date</TableCell>
-                  <TableCell className="font-semibold">Requester</TableCell>
-                  <TableCell className="font-semibold">
-                    Responsible Attorney
-                  </TableCell>
-                  <TableCell className="font-semibold">
-                    Client Name Matter Name
-                  </TableCell>
-                  <TableCell className="font-semibold">Risk</TableCell>
-                  <TableCell className="font-semibold">Conflicts</TableCell>
-                  <TableCell className="font-semibold">Client Number</TableCell>
-                  <TableCell className="font-semibold">Matter Number</TableCell>
-                  <TableCell className="font-semibold">Approval</TableCell>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow>
-                  <TableCell>222222-S</TableCell>
-                  <TableCell>12 May 2024 10:10 AM</TableCell>
-                  <TableCell>Smith, John</TableCell>
-                  <TableCell>Associate-Aaron</TableCell>
-                  <TableCell>
-                    <div>New Client</div>
-                    <div className="text-gray-500">New Matter</div>
-                  </TableCell>
-                  <TableCell>
-                    <Badge
-                      variant="warning"
-                      className="bg-yellow-100 text-yellow-800"
-                    >
-                      <AlertCircle className="w-4 h-4 mr-1" />
-                      Risk
-                    </Badge>
-                  </TableCell>
-                  <TableCell>
-                    <Badge
-                      variant="success"
-                      className="bg-green-100 text-green-800"
-                    >
-                      <Shield className="w-4 h-4 mr-1" />
-                      Clear
-                    </Badge>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="secondary">Pending</Badge>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="secondary">Pending</Badge>
-                  </TableCell>
-                  <TableCell>
-                    <MoreHorizontal
-                      className="inline text-gray-500"
-                      size={20}
-                    />
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
+          <Table>
+        <TableHeader>
+          <TableRow>
+            <TableCell className="font-semibold border px-4 py-2">Request</TableCell>
+            <TableCell className="font-semibold border px-4 py-2">Request Date</TableCell>
+            <TableCell className="font-semibold border px-4 py-2">Requester</TableCell>
+            <TableCell className="font-semibold border px-4 py-2">
+              Responsible Attorney
+            </TableCell>
+            <TableCell className="font-semibold border px-4 py-2">
+              Client Name Matter Name
+            </TableCell>
+            <TableCell className="font-semibold border px-4 py-2">Risk</TableCell>
+            <TableCell className="font-semibold border px-4 py-2">Conflicts</TableCell>
+            <TableCell className="font-semibold border px-4 py-2">Client Number</TableCell>
+            <TableCell className="font-semibold border px-4 py-2">Matter Number</TableCell>
+            <TableCell className="font-semibold border px-4 py-2">Approval</TableCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell className="border px-4 py-2">222222-S</TableCell>
+            <TableCell className="border px-4 py-2">12 May 2024 10:10 AM</TableCell>
+            <TableCell className="border px-4 py-2">Smith, John</TableCell>
+            <TableCell className="border px-4 py-2">Associate-Aaron</TableCell>
+            <TableCell className="border px-4 py-2">
+              <div>New Client</div>
+              <div className="text-gray-500">New Matter</div>
+            </TableCell>
+            <TableCell className="border px-4 py-2">
+              <StatusIcon type="risk" level="medium" size={24} />
+            </TableCell>
+            <TableCell className="border px-4 py-2">
+              <StatusIcon type="conflicts" level="low" size={24} />
+            </TableCell>
+            <TableCell className="border px-4 py-2">
+              <Badge variant="secondary">Pending</Badge>
+            </TableCell>
+            <TableCell className="border px-4 py-2">
+              <Badge variant="secondary">Pending</Badge>
+            </TableCell>
+            <TableCell className="border px-4 py-2">
+              <StatusIcon type="approvals" level="evaluation" size={24} />
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
           </div>
 
           <div className="grid grid-cols-2 gap-6">
