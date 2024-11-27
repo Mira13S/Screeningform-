@@ -23,6 +23,8 @@ import ClientMatterDetails from "./pages/ClientMatterDetails";
 import RiskDetails from "./pages/RiskDetails";
 import SettingsPage from "./pages/Settings";
 import ConflictDetails from "./pages/ConflictDetails";
+import { LandingPage } from "./pages/LandingPage";
+
 
 const client = new ApolloClient({
   uri: "https://flyby-router-demo.herokuapp.com/",
@@ -35,8 +37,8 @@ const App: React.FC = () => (
   <ApolloProvider client={client}>
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/test" replace />} />
-        <Route element={<Home />} path="/test"></Route>
+        <Route path="/" element={<LandingPage/>} />
+        <Route element={<Home />} path="/dashboard"></Route>
         <Route element={<AboutUs />} path="/about"></Route>
         <Route element={<RequestStatus />} path="/requeststatus"></Route>
         <Route element={<Reports />} path="/report"></Route>
