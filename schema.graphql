@@ -1,5 +1,5 @@
 type Mutation {
-  createProject(id: ID): Project
+  createProject(id: ID): Project!
 }
 
 type Project {

@@ -15,7 +15,7 @@ import { Test } from "./pages/Test";
 import AboutUs from "./pages/AboutUs";
 
 const client = new ApolloClient({
-  uri: "https://flyby-router-demo.herokuapp.com/",
+  uri: "https://graphql.pomelosolutions.com",
   cache: new InMemoryCache(),
 });
 

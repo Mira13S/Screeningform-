@@ -21,7 +21,7 @@ const ExploreContainer: React.FC<ContainerProps> = (props) => {
       <strong>{props.name}</strong>
       <div>
         {projectData &&
-          projectData.map((data, index) => {
+          projectData.map((data: any, index: any) => {
             return (
               <div key={"p-" + index}>
                 Name: {data.name}
