@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-export function Test() {
+export function LandingPage() {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col min-h-screen">
