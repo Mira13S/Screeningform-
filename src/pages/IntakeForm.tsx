@@ -22,20 +22,21 @@ import { StatusIcon } from "@/components/StatusIcon";
 const IntakeForm = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex">
-      <SideNavBar />
-      <div className="flex-1 ml-64">
-        {" "}
-        {/* Add margin to account for fixed sidebar */}
-        <Header />
-        <div className="max-w-full mx-auto p-4">
-          {/* Header row */}
-          <div className="flex justify-between items-center mb-6 gap-2">
-            <h1 className="text-xl font-bold">Intake Form</h1>
-            <div className="flex gap-2 ml-auto">
-              {" "}
-              {/* Adding ml-auto to move buttons to the right */}
-              <Button variant="outline" size="sm">
+    <div className="flex flex-col md:flex-row min-h-screen ">
+      <div className="lg:fixed lg:top-0 lg:left-0 lg:h-full lg:z-40">
+        <SideNavBar />
+      </div>
+
+      {/* Main content with proper margin to prevent navbar overlap */}
+      <div className="flex-1 flex flex-col min-w-0 lg:ml-64">
+        <Header className="z-30" />
+
+        <div className="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden overflow-y-auto">
+          
+          <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+            <h1 className="text-xl font-bold w-full text-center md:text-left">Intake Form</h1>
+            <div className="flex flex-wrap justify-center md:justify-end gap-2 w-full">
+              <Button variant="outline" size="sm" className="w-full md:w-auto">
                 Save Form
               </Button>
               <Button variant="outline" size="sm">
@@ -54,10 +55,17 @@ const IntakeForm = () => {
           </div>
 
           {/* Status Bar */}
+<<<<<<< HEAD
           <div className="w-full mb-6">
             <Table>
               <TableHeader>
                 <TableRow>
+=======
+          <div className="w-full mb-6 overflow-x-auto">
+            <Table className="min-w-[1200px]"> 
+            <TableHeader>
+             <TableRow>
+>>>>>>> new
                   <TableCell className="font-semibold border px-4 py-2">
                     Request
                   </TableCell>
@@ -126,7 +134,7 @@ const IntakeForm = () => {
             </Table>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Left Column - Document Upload */}
             <div>
               <div className="mb-4">
@@ -139,7 +147,7 @@ const IntakeForm = () => {
                 </p>
               </div>
 
-              <div className="border-2 border-dashed border-gray-300 rounded-lg h-[800px] flex flex-col items-center justify-center p-4">
+              <div className="border-2 border-dashed border-gray-300 rounded-lg h-[400px] md:h-[800px] flex flex-col items-center justify-center p-4">
                 <Scan size={48} className="text-gray-400 mb-4" />
                 <Button variant="outline" className="mb-2">
                   Scan Document
@@ -151,7 +159,7 @@ const IntakeForm = () => {
             </div>
 
             {/* Right Column - Complete Form */}
-            <div className="space-y-4">
+            <div className="space-y-4 max-h-[800px] overflow-y-auto pr-4">
               <Card>
                 <CardContent className="pt-6">
                   <div className="bg-blue-50 p-3 rounded mb-4">

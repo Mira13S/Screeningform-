@@ -1,33 +1,345 @@
+// import React from "react";
+// import { Card } from "@/components/ui/card";
+// import { Upload } from "lucide-react";
+// import SideNavBar from "@/components/SideNavBar";
+// import Header from "@/components/Header";
+// import { useNavigate } from "react-router-dom";
+
+// const ClientMatterDetails = () => {
+//   const navigate = useNavigate();
+//   return (
+//     <div className="flex">
+//       <SideNavBar />
+//       <div className="flex-1 ml-64">
+//         {/* Add margin to account for fixed sidebar */}
+//         <Header />
+//         <div className="w-full h-screen p-4 bg-gray-50">
+//           <div className="flex items-center justify-between mb-6">
+//             <div className="flex-1">
+//               <h1 className="text-xl font-bold">Client/Matter Details</h1>
+//             </div>
+//             <div className="flex justify-end">
+//               <button
+//                 className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-200 ml-auto"
+//                 onClick={() => navigate("/clientmatterchange")}
+//               >
+//                 RequestChanges
+//               </button>
+//               <button
+//                 className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-200 ml-auto"
+//                 onClick={() => navigate("/")}
+//               >
+//                 Print
+//               </button>
+//             </div>
+//           </div>
+
+//           {/* Header Information */}
+//           <div className="grid grid-cols-6 gap-4 mb-6 text-sm">
+//             <div>
+//               <div className="font-semibold">Request</div>
+//               <div>2222221</div>
+//             </div>
+//             <div>
+//               <div className="font-semibold">Request Date</div>
+//               <div>19 May, 2021</div>
+//             </div>
+//             <div>
+//               <div className="font-semibold">Requester</div>
+//               <div>Smith, John</div>
+//             </div>
+//             <div>
+//               <div className="font-semibold">Responsible Attorney</div>
+//               <div>Associate, Aaron</div>
+//             </div>
+//             <div>
+//               <div className="font-semibold">Client Name</div>
+//               <div>New Client</div>
+//             </div>
+//             <div>
+//               <div className="font-semibold">Matter Number</div>
+//               <div>1111</div>
+//             </div>
+//           </div>
+
+//           {/* Main Content Split */}
+//           <div className="flex gap-6">
+//             {/* Left Side - Scan/Upload Section */}
+//             <div className="w-1/3">
+//               <Card className="h-[600px] p-4">
+//                 <div className="border-2 border-dashed border-gray-300 rounded-lg h-full flex flex-col items-center justify-center p-4">
+//                   <Upload className="w-12 h-12 text-gray-400 mb-4" />
+//                   <div className="text-center">
+//                     <h3 className="font-semibold mb-2">
+//                       Drag & Drop or Upload Files Here
+//                     </h3>
+//                     <p className="text-sm text-gray-500 mb-4">
+//                       Upload PDF, DOC, DOCX, or image files
+//                     </p>
+//                     <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+//                       Choose Files
+//                     </button>
+//                   </div>
+//                   <div className="w-full mt-8">
+//                     <h4 className="font-semibold mb-2">
+//                       List of Emails or Documents
+//                     </h4>
+//                     <div className="border rounded p-2 h-40 overflow-y-auto">
+//                       {/* Upload list will appear here */}
+//                     </div>
+//                   </div>
+//                 </div>
+//               </Card>
+//             </div>
+
+//             {/* Right Side - Form */}
+//             <div className="w-2/3">
+//               <Card className="h-[600px]">
+//                 <div className="h-full overflow-y-auto p-4">
+//                   {/* Timekeeper Information */}
+//                   <section className="mb-6">
+//                     <h2 className="font-semibold bg-gray-100 p-2">
+//                       Timekeeper Information
+//                     </h2>
+//                     <table className="w-full mt-2">
+//                       <tbody>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Requester:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <input
+//                               type="text"
+//                               className="w-full bg-white border rounded p-1"
+//                             />
+//                           </td>
+//                         </tr>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Responsible Attorney:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <input
+//                               type="text"
+//                               className="w-full border rounded p-1 bg-white"
+//                             />
+//                           </td>
+//                         </tr>
+//                       </tbody>
+//                     </table>
+//                   </section>
+
+//                   {/* Client Information */}
+//                   <section className="mb-6">
+//                     <h2 className="font-semibold bg-gray-100 p-2">
+//                       Client Information
+//                     </h2>
+//                     <table className="w-full mt-2">
+//                       <tbody>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Client Name:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <input
+//                               type="text"
+//                               className="w-full bg-white border rounded p-1"
+//                             />
+//                           </td>
+//                         </tr>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Client Address:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <input
+//                               type="text"
+//                               className="w-full bg-white border rounded p-1"
+//                             />
+//                           </td>
+//                         </tr>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Company Description:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <textarea
+//                               className="w-full border bg-white rounded p-1"
+//                               rows="3"
+//                             ></textarea>
+//                           </td>
+//                         </tr>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Client Industry:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <input
+//                               type="text"
+//                               className="w-full bg-white border rounded p-1"
+//                             />
+//                           </td>
+//                         </tr>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Client Contact:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <input
+//                               type="text"
+//                               className="w-full bg-white border rounded p-1"
+//                               placeholder="Name, Title, email, phone"
+//                             />
+//                           </td>
+//                         </tr>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Client Website:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <input
+//                               type="text"
+//                               className="w-full bg-white border rounded p-1"
+//                             />
+//                           </td>
+//                         </tr>
+//                       </tbody>
+//                     </table>
+//                   </section>
+
+//                   {/* Matter Information */}
+//                   <section className="mb-6">
+//                     <h2 className="font-semibold bg-gray-100 p-2">
+//                       Matter Information
+//                     </h2>
+//                     <table className="w-full mt-2">
+//                       <tbody>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Matter Name:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <input
+//                               type="text"
+//                               className="w-full bg-white border rounded p-1"
+//                             />
+//                           </td>
+//                         </tr>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Matter Description:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <textarea
+//                               className="w-full border bg-white rounded p-1"
+//                               rows="3"
+//                             ></textarea>
+//                           </td>
+//                         </tr>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Matter Type:
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <input
+//                               type="text"
+//                               className="w-full bg-white border rounded p-1"
+//                             />
+//                           </td>
+//                         </tr>
+//                       </tbody>
+//                     </table>
+//                   </section>
+
+//                   {/* Security */}
+//                   <section className="mb-6">
+//                     <h2 className="font-semibold bg-gray-100 p-2">Security</h2>
+//                     <table className="w-full mt-2">
+//                       <tbody>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Is this Client confidential?
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <select className="border rounded p-1">
+//                               <option>Y/N</option>
+//                               <option>Y</option>
+//                               <option>N</option>
+//                             </select>
+//                           </td>
+//                         </tr>
+//                         <tr className="border-b">
+//                           <td className="py-2 px-4 w-1/3 bg-gray-50">
+//                             Is this Matter confidential?
+//                           </td>
+//                           <td className="py-2 px-4">
+//                             <select className="border rounded p-1">
+//                               <option>Y/N</option>
+//                               <option>Y</option>
+//                               <option>N</option>
+//                             </select>
+//                           </td>
+//                         </tr>
+//                       </tbody>
+//                     </table>
+//                   </section>
+//                 </div>
+//               </Card>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ClientMatterDetails;
+
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Upload } from "lucide-react";
 import SideNavBar from "@/components/SideNavBar";
 import Header from "@/components/Header";
 import { useNavigate } from "react-router-dom";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { StatusIcon } from "@/components/StatusIcon";
 
 const ClientMatterDetails = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex">
-      <SideNavBar />
-      <div className="flex-1 ml-64">
-        {" "}
-        {/* Add margin to account for fixed sidebar */}
-        <Header />
-        <div className="w-full h-screen p-4 bg-gray-50">
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex-1">
-              <h1 className="text-xl font-bold">Client/Matter Details</h1>
-            </div>
-            <div className="flex justify-end">
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Fixed positioning for SideNavBar with proper z-index */}
+      <div className="lg:fixed lg:top-0 lg:left-0 lg:h-full lg:z-40">
+        <SideNavBar />
+      </div>
+
+      {/* Main content with proper margin to prevent navbar overlap */}
+      <div className="flex-1 flex flex-col min-w-0 lg:ml-64">
+        <Header className="z-30" />
+
+        <div className="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden overflow-y-auto">
+          {/* Header actions */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 space-y-4 sm:space-y-0">
+            <h1 className="text-xl sm:text-2xl font-bold">
+              Client/Matter Details
+            </h1>
+            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
               <button
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-200 ml-auto"
+                className="w-full sm:w-auto px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
                 onClick={() => navigate("/clientmatterchange")}
               >
-                RequestChanges
+                Request Changes
               </button>
               <button
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-200 ml-auto"
+                className="w-full sm:w-auto px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
                 onClick={() => navigate("/")}
               >
                 Print
@@ -36,56 +348,101 @@ const ClientMatterDetails = () => {
           </div>
 
           {/* Header Information */}
-          <div className="grid grid-cols-6 gap-4 mb-6 text-sm">
-            <div>
-              <div className="font-semibold">Request</div>
-              <div>2222221</div>
-            </div>
-            <div>
-              <div className="font-semibold">Request Date</div>
-              <div>19 May, 2021</div>
-            </div>
-            <div>
-              <div className="font-semibold">Requester</div>
-              <div>Smith, John</div>
-            </div>
-            <div>
-              <div className="font-semibold">Responsible Attorney</div>
-              <div>Associate, Aaron</div>
-            </div>
-            <div>
-              <div className="font-semibold">Client Name</div>
-              <div>New Client</div>
-            </div>
-            <div>
-              <div className="font-semibold">Matter Number</div>
-              <div>1111</div>
+          <div className="mb-6 -mx-4 sm:mx-0 overflow-x-auto">
+            <div className="min-w-max bg-white rounded-lg shadow">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Request
+                    </TableHead>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Request Date
+                    </TableHead>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Requester
+                    </TableHead>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Attorney
+                    </TableHead>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Client/Matter
+                    </TableHead>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Risk
+                    </TableHead>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Conflicts
+                    </TableHead>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Client #
+                    </TableHead>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Matter #
+                    </TableHead>
+                    <TableHead className="font-semibold whitespace-nowrap">
+                      Approval
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>222222-S</TableCell>
+                    <TableCell>12 May 2024</TableCell>
+                    <TableCell>Smith, John</TableCell>
+                    <TableCell>Associate-Aaron</TableCell>
+                    <TableCell>
+                      <div>New Client</div>
+                      <div className="text-gray-500">New Matter</div>
+                    </TableCell>
+                    <TableCell>
+                      <StatusIcon type="risk" level="medium" size={24} />
+                    </TableCell>
+                    <TableCell>
+                      <StatusIcon type="conflicts" level="low" size={24} />
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="secondary">Pending</Badge>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="secondary">Pending</Badge>
+                    </TableCell>
+                    <TableCell>
+                      <StatusIcon
+                        type="approvals"
+                        level="evaluation"
+                        size={24}
+                      />
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
             </div>
           </div>
 
           {/* Main Content Split */}
-          <div className="flex gap-6">
+          <div className="flex flex-col lg:flex-row gap-6">
             {/* Left Side - Scan/Upload Section */}
-            <div className="w-1/3">
-              <Card className="h-[600px] p-4">
-                <div className="border-2 border-dashed border-gray-300 rounded-lg h-full flex flex-col items-center justify-center p-4">
-                  <Upload className="w-12 h-12 text-gray-400 mb-4" />
+            <div className="w-full lg:w-1/3">
+              <Card className="h-full min-h-[400px]">
+                <div className="border-2 border-dashed border-gray-300 rounded-lg h-full flex flex-col items-center justify-center p-4 sm:p-6">
+                  <Upload className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mb-4" />
                   <div className="text-center">
-                    <h3 className="font-semibold mb-2">
+                    <h3 className="text-base sm:text-lg font-semibold mb-2">
                       Drag & Drop or Upload Files Here
                     </h3>
                     <p className="text-sm text-gray-500 mb-4">
                       Upload PDF, DOC, DOCX, or image files
                     </p>
-                    <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                    <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
                       Choose Files
                     </button>
                   </div>
-                  <div className="w-full mt-8">
+                  <div className="w-full mt-6 sm:mt-8">
                     <h4 className="font-semibold mb-2">
                       List of Emails or Documents
                     </h4>
-                    <div className="border rounded p-2 h-40 overflow-y-auto">
+                    <div className="border rounded p-2 h-32 sm:h-40 overflow-y-auto">
                       {/* Upload list will appear here */}
                     </div>
                   </div>
@@ -94,196 +451,40 @@ const ClientMatterDetails = () => {
             </div>
 
             {/* Right Side - Form */}
-            <div className="w-2/3">
-              <Card className="h-[600px]">
-                <div className="h-full overflow-y-auto p-4">
+            <div className="w-full lg:w-2/3">
+              <Card className="h-full">
+                <div className="h-full overflow-y-auto p-4 sm:p-6">
                   {/* Timekeeper Information */}
-                  <section className="mb-6">
-                    <h2 className="font-semibold bg-gray-100 p-2">
-                      Timekeeper Information
-                    </h2>
-                    <table className="w-full mt-2">
-                      <tbody>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Requester:
-                          </td>
-                          <td className="py-2 px-4">
-                            <input
-                              type="text"
-                              className="w-full bg-white border rounded p-1"
-                            />
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Responsible Attorney:
-                          </td>
-                          <td className="py-2 px-4">
-                            <input
-                              type="text"
-                              className="w-full border rounded p-1 bg-white"
-                            />
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </section>
+                  <FormSection title="Timekeeper Information">
+                    <FormField label="Requester:" />
+                    <FormField label="Responsible Attorney:" />
+                  </FormSection>
 
                   {/* Client Information */}
-                  <section className="mb-6">
-                    <h2 className="font-semibold bg-gray-100 p-2">
-                      Client Information
-                    </h2>
-                    <table className="w-full mt-2">
-                      <tbody>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Client Name:
-                          </td>
-                          <td className="py-2 px-4">
-                            <input
-                              type="text"
-                              className="w-full bg-white border rounded p-1"
-                            />
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Client Address:
-                          </td>
-                          <td className="py-2 px-4">
-                            <input
-                              type="text"
-                              className="w-full bg-white border rounded p-1"
-                            />
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Company Description:
-                          </td>
-                          <td className="py-2 px-4">
-                            <textarea
-                              className="w-full border bg-white rounded p-1"
-                              rows="3"
-                            ></textarea>
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Client Industry:
-                          </td>
-                          <td className="py-2 px-4">
-                            <input
-                              type="text"
-                              className="w-full bg-white border rounded p-1"
-                            />
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Client Contact:
-                          </td>
-                          <td className="py-2 px-4">
-                            <input
-                              type="text"
-                              className="w-full bg-white border rounded p-1"
-                              placeholder="Name, Title, email, phone"
-                            />
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Client Website:
-                          </td>
-                          <td className="py-2 px-4">
-                            <input
-                              type="text"
-                              className="w-full bg-white border rounded p-1"
-                            />
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </section>
+                  <FormSection title="Client Information">
+                    <FormField label="Client Name:" />
+                    <FormField label="Client Address:" />
+                    <FormField label="Company Description:" isTextarea />
+                    <FormField label="Client Industry:" />
+                    <FormField
+                      label="Client Contact:"
+                      placeholder="Name, Title, email, phone"
+                    />
+                    <FormField label="Client Website:" />
+                  </FormSection>
 
                   {/* Matter Information */}
-                  <section className="mb-6">
-                    <h2 className="font-semibold bg-gray-100 p-2">
-                      Matter Information
-                    </h2>
-                    <table className="w-full mt-2">
-                      <tbody>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Matter Name:
-                          </td>
-                          <td className="py-2 px-4">
-                            <input
-                              type="text"
-                              className="w-full bg-white border rounded p-1"
-                            />
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Matter Description:
-                          </td>
-                          <td className="py-2 px-4">
-                            <textarea
-                              className="w-full border bg-white rounded p-1"
-                              rows="3"
-                            ></textarea>
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Matter Type:
-                          </td>
-                          <td className="py-2 px-4">
-                            <input
-                              type="text"
-                              className="w-full bg-white border rounded p-1"
-                            />
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </section>
+                  <FormSection title="Matter Information">
+                    <FormField label="Matter Name:" />
+                    <FormField label="Matter Description:" isTextarea />
+                    <FormField label="Matter Type:" />
+                  </FormSection>
 
                   {/* Security */}
-                  <section className="mb-6">
-                    <h2 className="font-semibold bg-gray-100 p-2">Security</h2>
-                    <table className="w-full mt-2">
-                      <tbody>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Is this Client confidential?
-                          </td>
-                          <td className="py-2 px-4">
-                            <select className="border rounded p-1">
-                              <option>Y/N</option>
-                              <option>Y</option>
-                              <option>N</option>
-                            </select>
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2 px-4 w-1/3 bg-gray-50">
-                            Is this Matter confidential?
-                          </td>
-                          <td className="py-2 px-4">
-                            <select className="border rounded p-1">
-                              <option>Y/N</option>
-                              <option>Y</option>
-                              <option>N</option>
-                            </select>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </section>
+                  <FormSection title="Security">
+                    <FormField label="Is this Client confidential?" isSelect />
+                    <FormField label="Is this Matter confidential?" isSelect />
+                  </FormSection>
                 </div>
               </Card>
             </div>
@@ -293,5 +494,50 @@ const ClientMatterDetails = () => {
     </div>
   );
 };
+
+// Reusable FormSection component
+const FormSection = ({ title, children }) => (
+  <section className="mb-6 sm:mb-8">
+    <h2 className="text-lg sm:text-xl font-semibold bg-gray-100 p-2 sm:p-3 mb-3 sm:mb-4 rounded">
+      {title}
+    </h2>
+    <div className="space-y-3 sm:space-y-4">{children}</div>
+  </section>
+);
+
+// Reusable FormField component
+const FormField = ({
+  label,
+  isTextarea = false,
+  isSelect = false,
+  placeholder = "",
+}) => (
+  <div className="flex flex-col sm:flex-row sm:items-start">
+    <label className="w-full sm:w-1/3 py-2 px-3 sm:px-4 bg-gray-50 rounded-t sm:rounded-l sm:rounded-tr-none">
+      {label}
+    </label>
+    <div className="w-full sm:w-2/3">
+      {isTextarea ? (
+        <textarea
+          className="w-full border bg-white rounded-b sm:rounded-r sm:rounded-bl-none p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          rows={3}
+          placeholder={placeholder}
+        />
+      ) : isSelect ? (
+        <select className="w-full border rounded-b sm:rounded-r sm:rounded-bl-none p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option>Y/N</option>
+          <option>Y</option>
+          <option>N</option>
+        </select>
+      ) : (
+        <input
+          type="text"
+          className="w-full bg-white border rounded-b sm:rounded-r sm:rounded-bl-none p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder={placeholder}
+        />
+      )}
+    </div>
+  </div>
+);
 
 export default ClientMatterDetails;

@@ -69,10 +69,17 @@ const matterData = [
   },
 ];
 
-type Status = "low" | "none" | "approved" | "medium" | "pending" | "high" | "found" | "denied";
+type Status =
+  | "low"
+  | "none"
+  | "approved"
+  | "medium"
+  | "pending"
+  | "high"
+  | "found"
+  | "denied";
 
-
-const StatusIcon : React.FC<{status: Status }>=({status}) => {
+const StatusIcon: React.FC<{ status: Status }> = ({ status }) => {
   switch (status) {
     case "low":
     case "none":
@@ -189,9 +196,13 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <SideNavBar />
-      <div className="flex flex-col lg:ml-64"> {/* Changed to flex-col and moved margin here */}
+      <div className="flex flex-col lg:ml-64">
+        {" "}
+        {/* Changed to flex-col and moved margin here */}
         <Header /> {/* Header is now part of the content area */}
-        <main className="flex-1 p-4 lg:p-6"> {/* Removed ml-64 since it's handled by parent */}
+        <main className="flex-1 p-4 lg:p-6">
+          {" "}
+          {/* Removed ml-64 since it's handled by parent */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
             <div className="lg:col-span-2 bg-white rounded-lg p-4 shadow">
               <ResponsiveContainer width="100%" height={300}>
@@ -251,4 +262,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
