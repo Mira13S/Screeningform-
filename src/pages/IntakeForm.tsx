@@ -29,12 +29,13 @@ const IntakeForm = () => {
 
       {/* Main content with proper margin to prevent navbar overlap */}
       <div className="flex-1 flex flex-col min-w-0 lg:ml-64">
-        <Header className="z-30" />
+        <Header  />
 
         <div className="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden overflow-y-auto">
-          
           <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-            <h1 className="text-xl font-bold w-full text-center md:text-left">Intake Form</h1>
+            <h1 className="text-xl font-bold w-full text-center md:text-left">
+              Intake Form
+            </h1>
             <div className="flex flex-wrap justify-center md:justify-end gap-2 w-full">
               <Button variant="outline" size="sm" className="w-full md:w-auto">
                 Save Form
@@ -55,17 +56,10 @@ const IntakeForm = () => {
           </div>
 
           {/* Status Bar */}
-<<<<<<< HEAD
-          <div className="w-full mb-6">
-            <Table>
+          <div className="w-full mb-6 overflow-x-auto">
+            <Table className="min-w-[1200px]">
               <TableHeader>
                 <TableRow>
-=======
-          <div className="w-full mb-6 overflow-x-auto">
-            <Table className="min-w-[1200px]"> 
-            <TableHeader>
-             <TableRow>
->>>>>>> new
                   <TableCell className="font-semibold border px-4 py-2">
                     Request
                   </TableCell>

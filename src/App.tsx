@@ -55,7 +55,7 @@ const App: React.FC = () => (
         <Route element={<IntakeForm />} path="/intake"></Route>
         <Route
           element={<ClientMatterChange />}
-          path="/clientmatterchange"
+          path="/clientmatterchanges"
         ></Route>
         <Route
           element={<ClientMatterDetails />}

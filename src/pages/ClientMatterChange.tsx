@@ -29,7 +29,7 @@ const ClientMatterChange = () => {
       <div className="flex-1 flex flex-col min-w-0 lg:ml-64">
         {" "}
         {/* Added ml-64 for sidebar width */}
-        <Header className="z-30" /> {/* Added z-index */}
+        <Header  /> {/* Added z-index */}
         <main className="flex-1 overflow-x-hidden overflow-y-auto p-4 sm:p-6 lg:p-8">
           {/* Rest of the content remains the same */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 space-y-4 sm:space-y-0">
@@ -93,10 +93,14 @@ const ClientMatterChange = () => {
                       <div className="text-gray-500">New Matter</div>
                     </TableCell>
                     <TableCell>
-                      <StatusIcon type="risk" level="medium" size={24} />
+                      <StatusIcon type="risk" level="medium" size={24} onClick={function (): void {
+                        throw new Error("Function not implemented.");
+                      } } />
                     </TableCell>
                     <TableCell>
-                      <StatusIcon type="conflicts" level="low" size={24} />
+                      <StatusIcon type="conflicts" level="low" size={24} onClick={function (): void {
+                        throw new Error("Function not implemented.");
+                      } } />
                     </TableCell>
                     <TableCell>
                       <Badge variant="secondary">Pending</Badge>
@@ -108,8 +112,9 @@ const ClientMatterChange = () => {
                       <StatusIcon
                         type="approvals"
                         level="evaluation"
-                        size={24}
-                      />
+                        size={24} onClick={function (): void {
+                          throw new Error("Function not implemented.");
+                        } }                      />
                     </TableCell>
                   </TableRow>
                 </TableBody>
@@ -187,7 +192,12 @@ const ClientMatterChange = () => {
 };
 
 // FormSection and FormField components remain the same
-const FormSection = ({ title, children }) => (
+interface FormSectionProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+const FormSection = ({ title, children }: FormSectionProps) => (
   <section className="mb-6 sm:mb-8">
     <h2 className="text-lg sm:text-xl font-semibold bg-gray-100 p-2 sm:p-3 mb-3 sm:mb-4 rounded">
       {title}
@@ -197,7 +207,7 @@ const FormSection = ({ title, children }) => (
 );
 
 const FormField = ({
-  label,
+  label='',
   isTextarea = false,
   isSelect = false,
   placeholder = "",
