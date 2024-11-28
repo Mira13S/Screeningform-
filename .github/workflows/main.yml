@@ -28,31 +28,9 @@ jobs:
 
           port: ${{ secrets.PORT }}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> new
           script: |
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             cd /home/pomelo/Projects/pomelo-app
-            git pull
-            npm install
-            npm run build
+            git stash && git pull && npm install && npm run build
             pm2 restart all
-<<<<<<< HEAD
-=======
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-        port: ${{ secrets.PORT }}
-
-        script: |
-          export NVM_DIR=~/.nvm
-          source ~/.nvm/nvm.sh
-          cd /home/pomelo/Projects/pomelo-app
-          git stash && git pull && npm install && npm run build
-          pm2 restart all
-          
->>>>>>> 1a65b9ffbd8d889c1feee376375bfeaf50678d16
-=======
->>>>>>> new
