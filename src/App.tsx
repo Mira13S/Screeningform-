@@ -11,10 +11,24 @@ import * as ReactDOM from "react-dom/client";
 import "./theme/variables.css";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { Test } from "./pages/Test";
+import { Home } from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
+
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Register";
+
+import { RequestStatus } from "./pages/RequestStatus";
+import Reports from "./pages/Reports";
+import HelpCenter from "./pages/HelpCenter";
+import ScreeningForm from "./pages/ScreeningForm";
+import IntakeForm from "./pages/IntakeForm";
+import ClientMatterChange from "./pages/ClientMatterChange";
+import ClientMatterDetails from "./pages/ClientMatterDetails";
+import RiskDetails from "./pages/RiskDetails";
+import SettingsPage from "./pages/Settings";
+import ConflictDetails from "./pages/ConflictDetails";
+import { LandingPage } from "./pages/LandingPage";
+
 
 const client = new ApolloClient({
   // uri: "https://graphql.pomelosolutions.com",
@@ -28,11 +42,30 @@ const App: React.FC = () => (
  <ApolloProvider client={client}>
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/test" replace />} />
-        <Route element={<Test />} path="/test"></Route>
+        <Route path="/" element={<LandingPage/>} />
+        <Route element={<Home />} path="/dashboard"></Route>
         <Route element={<AboutUs />} path="/about"></Route>
+
         <Route element={<LoginPage />} path="/login"></Route>
         <Route element={<SignupPage />} path="/register"></Route>
+
+        <Route element={<RequestStatus />} path="/requeststatus"></Route>
+        <Route element={<Reports />} path="/report"></Route>
+        <Route element={<HelpCenter />} path="/help"></Route>
+        <Route element={<ScreeningForm />} path="/screeningform"></Route>
+        <Route element={<IntakeForm />} path="/intake"></Route>
+        <Route
+          element={<ClientMatterChange />}
+          path="/clientmatterchange"
+        ></Route>
+        <Route
+          element={<ClientMatterDetails />}
+          path="/clientmatterdetails"
+        ></Route>
+        <Route element={<RiskDetails />} path="/riskdetails"></Route>
+        <Route element={<SettingsPage />} path="/settings"></Route>
+        <Route element={<ConflictDetails />} path="/conflictdetails"></Route>
+
       </Routes>
     </Router>
   </ApolloProvider>
