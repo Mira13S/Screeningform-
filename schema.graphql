@@ -1,0 +1,27 @@
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type Mutation {
+  createProject(id: ID): Project!
+  loginUser(email: String!, password: String!): AuthPayload!
+  registerUser(email: String!, name: String!, password: String!): User!
+}
+
+type Project {
+  contributors: [User!]
+  name: String
+  tagline: String
+}
+
+type Query {
+  projects(id: ID, name: String): [Project!]
+}
+
+type User {
+  email: String!
+  id: ID!
+  name: String!
+  password: String!
+}

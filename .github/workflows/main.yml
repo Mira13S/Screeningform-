@@ -1,49 +1,38 @@
-
 name: pomelo_app
 
 on:
-
   push:
-
-    branches: [ main]
+    branches: [main]
 
 jobs:
-
   Deploy:
-
     name: Deploy to pomelo_app
 
     runs-on: ubuntu-latest
 
-
-
-
     steps:
+      - name: build deploy
 
-    - name: build deploy
+        uses: actions/checkout@v2
 
-      uses: actions/checkout@v2 
+      - name: executing remote ssh commands
 
-    - name: executing remote ssh commands
+        uses: appleboy/ssh-action@v0.1.10
 
-      uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SSH_HOST }}
 
-      with:
+          username: ${{ secrets.USER_NAME }}
 
-        host: ${{ secrets.SSH_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-        username: ${{ secrets.USER_NAME }}
+          port: ${{ secrets.PORT }}
 
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-        port: ${{ secrets.PORT }}
-
-        script: |
-          export NVM_DIR=~/.nvm
-          source ~/.nvm/nvm.sh
-          cd /home/pomelo/Projects/pomelo-app
-          git pull
-          npm install
-          npm run build
-          pm2 restart all
-          
+          script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            cd /home/pomelo/Projects/pomelo-app
+            git pull
+            npm install
+            npm run build
+            pm2 restart all

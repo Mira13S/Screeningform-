@@ -32,24 +32,38 @@ const TopTable = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableCell className="font-semibold border px-4 py-2">Request</TableCell>
-            <TableCell className="font-semibold border px-4 py-2">Request Date</TableCell>
-            <TableCell className="font-semibold border px-4 py-2">Requester</TableCell>
+            <TableCell className="font-semibold border px-4 py-2">
+              Request
+            </TableCell>
+            <TableCell className="font-semibold border px-4 py-2">
+              Request Date
+            </TableCell>
+            <TableCell className="font-semibold border px-4 py-2">
+              Requester
+            </TableCell>
             <TableCell className="font-semibold border px-4 py-2">
               Responsible Attorney
             </TableCell>
             <TableCell className="font-semibold border px-4 py-2">
               Client Name Matter Name
             </TableCell>
-            <TableCell className="font-semibold border px-4 py-2">Risk</TableCell>
-            <TableCell className="font-semibold border px-4 py-2">Conflicts</TableCell>
-            <TableCell className="font-semibold border px-4 py-2">Client Number</TableCell>
+            <TableCell className="font-semibold border px-4 py-2">
+              Risk
+            </TableCell>
+            <TableCell className="font-semibold border px-4 py-2">
+              Conflicts
+            </TableCell>
+            <TableCell className="font-semibold border px-4 py-2">
+              Client Number
+            </TableCell>
           </TableRow>
         </TableHeader>
         <TableBody>
           <TableRow>
             <TableCell className="border px-4 py-2">222222-S</TableCell>
-            <TableCell className="border px-4 py-2">12 May 2024 10:10 AM</TableCell>
+            <TableCell className="border px-4 py-2">
+              12 May 2024 10:10 AM
+            </TableCell>
             <TableCell className="border px-4 py-2">Smith, John</TableCell>
             <TableCell className="border px-4 py-2">Associate-Aaron</TableCell>
             <TableCell className="border px-4 py-2">
@@ -114,7 +128,7 @@ const StandardDropdown = ({ label, options }) => (
 );
 
 const ScreeningForm = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
     <div className="flex">
       <SideNavBar />
@@ -130,7 +144,12 @@ const ScreeningForm = () => {
               <Button variant="outline" size="sm">
                 Save Form
               </Button>
-              <Button variant="outline" size="sm" className="whitespace-nowrap" onClick={()=>navigate("/intake")}>
+              <Button
+                variant="outline"
+                size="sm"
+                className="whitespace-nowrap"
+                onClick={() => navigate("/intake")}
+              >
                 Submit Request and Start Intake Form
               </Button>
               {/* <Button variant="outline" size="sm" className="whitespace-nowrap">
@@ -139,7 +158,7 @@ const ScreeningForm = () => {
               <Button variant="outline" size="sm">
                 Clone Matter
               </Button> */}
-              <Button variant="outline" size="sm" onClick={()=>navigate("/")}>
+              <Button variant="outline" size="sm" onClick={() => navigate("/")}>
                 Submit Request
               </Button>
             </div>

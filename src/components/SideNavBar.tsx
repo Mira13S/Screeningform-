@@ -1,87 +1,121 @@
-import React from "react";
-import { Home, Briefcase, Users, Info, Phone, BookUser } from "lucide-react";
+
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { Home, Briefcase, Users, Info, Phone, BookUser, Menu, X } from 'lucide-react';
 import { FaSearch, FaPlusSquare, FaBookOpen } from "react-icons/fa";
 import { RiUserSettingsLine } from "react-icons/ri";
 import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
-import { NavLink } from "react-router-dom";
 
-const SideNavBar: React.FC = () => {
+const SideNavBar = () => { 
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const navItems = [
+    { to: "/search", icon: <FaSearch className="w-5 h-5 mr-3" />, label: "Search" },
+    { to: "/", icon: <Home className="w-5 h-5 mr-3" />, label: "Home" },
+    { to: "/screeningform", icon: <FaPlusSquare className="w-5 h-5 mr-3" />, label: "Screening Form" },
+    { to: "/clientmatterchange", icon: <Briefcase className="w-5 h-5 mr-3" />, label: "C/M Changes" },
+    { to: "/report", icon: <FaBookOpen className="w-5 h-5 mr-3" />, label: "Report" },
+    { to: "/settings", icon: <IoMdSettings className="w-5 h-5 mr-3" />, label: "Settings" },
+    { to: "/help", icon: <IoMdHelpCircle className="w-5 h-5 mr-3" />, label: "Help" }
+  ];
+  
   return (
-    <aside className="h-screen w-64 bg-gray-100 dark:bg-gray-800 shadow-md fixed">
-      <div className="flex flex-col h-full">
-        <a href="/" className="flex items-center space-x-2">
-          <BookUser className="h-6 w-6 ml-5 mt-5" />
-          <span className="font-bold text-3xl mt-5">Pomelo</span>
-        </a>
-        <nav className="flex-1 mt-10">
-          <ul className="space-y-5">
-            <NavItem
-              to="/"
-              icon={<FaSearch className="h-5 w-5" />}
-              label="Search"
-            />
-            <NavItem to="/" icon={<Home className="h-5 w-5" />} label="Home" />
+    <>
+     
+      <button
+        className="lg:hidden fixed top-4 left-4 z-[60] p-2 rounded-md bg-gray-800 text-white"
+        onClick={toggleNavbar}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+      >
+        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
 
-            <NavItem
-              to="/screeningform"
-              icon={<FaPlusSquare className="h-5 w-5" />}
-              label="Screening Form"
-            />
+     
+      {isOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-[55]"
+          onClick={toggleNavbar}
+        />
+      )}
 
-            <NavItem
-              to="/clientmatterchange"
-              icon={<RiUserSettingsLine className="h-5 w-5" />}
-              label="C/M Changes"
-            />
-            <NavItem
-              to="/report"
-              icon={<FaBookOpen className="h-5 w-5" />}
-              label="Report"
-            />
+    
+      <div
+        className={`fixed top-0 left-0 h-full bg-white dark:bg-gray-900 shadow-lg z-[58] transition-all duration-300 ease-in-out ${
+          (!isMobile || isOpen) ? "w-64" : "w-0"
+        } ${
+          (!isMobile || isOpen) ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        {(!isMobile || isOpen) && (
+          <>
+            <div className="p-6 pt-16">
+              <h1 className="text-4xl font-bold text-gray-800 dark:text-white text-left">Pomelo</h1>
+            </div>
 
-            <NavItem
-              to="/settings"
-              icon={<IoMdSettings className="h-5 w-5" />}
-              label="Settings"
-            />
-            <NavItem
-              to="/help"
-              icon={<IoMdHelpCircle className="h-5 w-5" />}
-              label="Help"
-            />
-          </ul>
-        </nav>
+            
+            <nav className="space-y-1 px-3">
+              {navItems.map((item) => (
+                <NavItem
+                  key={item.to}
+                  to={item.to}
+                  icon={item.icon}
+                  label={item.label}
+                  onClick={() => {
+                    if (isMobile) {
+                      setIsOpen(false);
+                    }
+                  }}
+                />
+              ))}
+            </nav>
+          </>
+        )}
       </div>
-    </aside>
+    </>
   );
 };
 
-function NavItem({
-  to,
-  icon,
-  label,
-}: {
-  to: string;
-  icon: React.ReactNode;
+const NavItem = ({ 
+  to, 
+  icon, 
+  label, 
+  onClick 
+}: { 
+  to: string; 
+  icon: React.ReactNode; 
   label: string;
-}) {
+  onClick: () => void;
+}) => {
   return (
-    <li>
-      <NavLink
-        to={to}
-        className={({ isActive }) =>
-          `flex items-center px-4 py-2 text-sm font-medium ${
-            isActive
-              ? "bg-primary text-white"
-              : "text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"
-          } rounded-md`
-        }
-      >
-        <span className="mr-3">{icon}</span>
-        {label}
-      </NavLink>
-    </li>
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        `flex items-center px-4 py-2 text-sm font-medium ${
+          isActive
+            ? "bg-primary text-white"
+            : "text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"
+        } rounded-md transition-colors duration-200`
+      }
+      onClick={onClick}
+    >
+      {icon}
+      <span>{label}</span>
+    </NavLink>
   );
-}
+};
 
 export default SideNavBar;

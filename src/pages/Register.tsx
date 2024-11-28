@@ -51,7 +51,7 @@ export default function SignupPage() {
   const { toast } = useToast();
   const [registerUser, { loading, error }] = useMutation(REGISTER_MUTATION);
   const [showPassword, setShowPassword] = useState(false);
-  const navigation = useNavigate()
+  const navigation = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -97,7 +97,7 @@ export default function SignupPage() {
         title: "User Registered Successfully, Please Login",
         variant: "default",
       });
-      navigation("/login")
+      navigation("/login");
     } catch (e) {
       console.log(e);
       toast({
@@ -109,7 +109,7 @@ export default function SignupPage() {
     }
   };
 
-    const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
@@ -160,19 +160,19 @@ export default function SignupPage() {
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
               <div className="relative">
-              <Input
-                id="password"
-                name="password"
-                placeholder="********"
-                type={showPassword ? "text" : "password"}
-                value={formData.password}
-                onChange={handleInputChange}
-                aria-invalid={errors.password ? "true" : "false"}
-                aria-describedby={
-                  errors.password ? "password-error" : undefined
-                }
-              />
-              <Button
+                <Input
+                  id="password"
+                  name="password"
+                  placeholder="********"
+                  type={showPassword ? "text" : "password"}
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  aria-invalid={errors.password ? "true" : "false"}
+                  aria-describedby={
+                    errors.password ? "password-error" : undefined
+                  }
+                />
+                <Button
                   type="button"
                   variant="ghost"
                   size="icon"
@@ -186,7 +186,7 @@ export default function SignupPage() {
                     <Eye className="h-4 w-4" />
                   )}
                 </Button>
-                </div>
+              </div>
               {errors.password && (
                 <p id="password-error" className="text-sm text-red-500">
                   {errors.password}

@@ -69,7 +69,10 @@ const matterData = [
   },
 ];
 
-const StatusIcon = ({ status }) => {
+type Status = "low" | "none" | "approved" | "medium" | "pending" | "high" | "found" | "denied";
+
+
+const StatusIcon : React.FC<{status: Status }>=({status}) => {
   switch (status) {
     case "low":
     case "none":
@@ -86,8 +89,26 @@ const StatusIcon = ({ status }) => {
       return <HelpCircle className="text-gray-500" size={20} />;
   }
 };
+interface MatterData {
+  request: string;
+  requestDate: string;
+  requestingAttorney: string;
+  responsibleAttorney: string;
+  clientName: string;
+  matterName: string;
+  risk: string;
+  conflicts: string;
+  clientNumber: string;
+  matterNumber: string;
+  approval: string;
+}
 
-const DataTable = ({ data, title }) => (
+interface DataTableProps {
+  data: MatterData[];
+  title: string;
+}
+
+const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
   <Card className="mt-6">
     <CardHeader>
       <CardTitle className="text-lg font-medium">{title}</CardTitle>
@@ -126,10 +147,10 @@ const DataTable = ({ data, title }) => (
                   {row.matterName}
                 </td>
                 <td className="px-4 py-2 text-center">
-                  <StatusIcon status={row.risk} />
+                  <StatusIcon status={row.risk as Status} />
                 </td>
                 <td className="px-4 py-2 text-center">
-                  <StatusIcon status={row.conflicts} />
+                  <StatusIcon status={row.conflicts as Status} />
                 </td>
                 <td className="px-4 py-2 text-center">{row.clientNumber}</td>
                 <td className="px-4 py-2 text-center">{row.matterNumber}</td>
@@ -166,15 +187,13 @@ const DataTable = ({ data, title }) => (
 
 const Dashboard = () => {
   return (
-    <div className="flex">
+    <div className="min-h-screen bg-gray-100">
       <SideNavBar />
-      <div className="flex-1 ml-64">
-        {" "}
-        {/* Add margin to account for fixed sidebar */}
-        <Header />
-        <div className="p-6">
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-2 bg-white rounded-lg p-4 shadow">
+      <div className="flex flex-col lg:ml-64"> {/* Changed to flex-col and moved margin here */}
+        <Header /> {/* Header is now part of the content area */}
+        <main className="flex-1 p-4 lg:p-6"> {/* Removed ml-64 since it's handled by parent */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
+            <div className="lg:col-span-2 bg-white rounded-lg p-4 shadow">
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={lineData}>
                   <XAxis dataKey="name" hide />
@@ -221,13 +240,15 @@ const Dashboard = () => {
               </ResponsiveContainer>
             </div>
           </div>
-
-          <DataTable data={matterData} title="New Matter Report" />
-          <DataTable data={matterData} title="New Client Report" />
-        </div>
+          <div className="mt-6 space-y-6">
+            <DataTable data={matterData} title="New Matter Report" />
+            <DataTable data={matterData} title="New Client Report" />
+          </div>
+        </main>
       </div>
     </div>
   );
 };
 
 export default Dashboard;
+

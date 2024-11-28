@@ -100,13 +100,10 @@ const RiskAssessment = () => {
                       <div>New Client</div>
                       <div className="text-gray-500">New Matter</div>
                     </td>
-                    <td
-                      className="border px-4 py-2"                    >
+                    <td className="border px-4 py-2">
                       <StatusIcon type="risk" level="medium" size={24} />
                     </td>
-                    <td
-                      className="border px-4 py-2"
-                    >
+                    <td className="border px-4 py-2">
                       <StatusIcon
                         type="conflicts"
                         level="evaluation"

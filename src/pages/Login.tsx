@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/card";
 import { gql, useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const LOGIN_MUTATION = gql(`
@@ -50,7 +50,7 @@ export default function LoginPage() {
 
   const [loginUser, { loading, error }] = useMutation(LOGIN_MUTATION);
   const navigation = useNavigate();
-   const { toast } = useToast();
+  const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -169,4 +169,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
