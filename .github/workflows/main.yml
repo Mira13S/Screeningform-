@@ -32,5 +32,6 @@ jobs:
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             cd /home/pomelo/Projects/pomelo-app
+            rm schema.graphql
             git stash && git pull && npm install && npm run build
             pm2 restart all
