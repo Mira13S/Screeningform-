@@ -349,76 +349,76 @@ const RiskAssessment = () => {
 
             {/* Mobile-friendly table view */}
             <div className="mb-6 -mx-4 sm:mx-0 overflow-x-auto">
-            <div className="min-w-max bg-white rounded-lg shadow">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Request
-                    </TableHead>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Request Date
-                    </TableHead>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Requester
-                    </TableHead>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Attorney
-                    </TableHead>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Client/Matter
-                    </TableHead>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Risk
-                    </TableHead>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Conflicts
-                    </TableHead>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Client Number
-                    </TableHead>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Matter Number
-                    </TableHead>
-                    <TableHead className="font-semibold whitespace-nowrap">
-                      Approval
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>222222-S</TableCell>
-                    <TableCell>12 May 2024</TableCell>
-                    <TableCell>Smith, John</TableCell>
-                    <TableCell>Associate-Aaron</TableCell>
-                    <TableCell>
-                      <div>New Client</div>
-                      <div className="text-gray-500">New Matter</div>
-                    </TableCell>
-                    <TableCell>
-                      <StatusIcon type="risk" level="medium" size={24} />
-                    </TableCell>
-                    <TableCell>
-                      <StatusIcon type="conflicts" level="low" size={24} />
-                    </TableCell>
-                    <TableCell>
-                      <Badge variant="secondary">Pending</Badge>
-                    </TableCell>
-                    <TableCell>
-                      <Badge variant="secondary">Pending</Badge>
-                    </TableCell>
-                    <TableCell>
-                      <StatusIcon
-                        type="approvals"
-                        level="evaluation"
-                        size={24}
-                      />
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+              <div className="min-w-max bg-white rounded-lg shadow">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Request
+                      </TableHead>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Request Date
+                      </TableHead>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Requester
+                      </TableHead>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Attorney
+                      </TableHead>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Client/Matter
+                      </TableHead>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Risk
+                      </TableHead>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Conflicts
+                      </TableHead>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Client Number
+                      </TableHead>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Matter Number
+                      </TableHead>
+                      <TableHead className="font-semibold whitespace-nowrap">
+                        Approval
+                      </TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>222222-S</TableCell>
+                      <TableCell>12 May 2024</TableCell>
+                      <TableCell>Smith, John</TableCell>
+                      <TableCell>Associate-Aaron</TableCell>
+                      <TableCell>
+                        <div>New Client</div>
+                        <div className="text-gray-500">New Matter</div>
+                      </TableCell>
+                      <TableCell>
+                        <StatusIcon type="risk" level="medium" size={24} />
+                      </TableCell>
+                      <TableCell>
+                        <StatusIcon type="conflicts" level="low" size={24} />
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="secondary">Pending</Badge>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="secondary">Pending</Badge>
+                      </TableCell>
+                      <TableCell>
+                        <StatusIcon
+                          type="approvals"
+                          level="evaluation"
+                          size={24}
+                        />
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
             </div>
-          </div>
 
             {/* Desktop table view */}
             {/* <div className="hidden md:block overflow-x-auto">
@@ -486,11 +486,13 @@ const RiskAssessment = () => {
                     <div className="flex flex-col md:flex-row gap-8">
                       {/* Gauge visualization */}
                       <div className="w-48 h-48 border-4 border-gray-300 rounded-full flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="text-base font-semibold">D&B Credit Score</div>
-                            <div className="text-sm text-gray-500">DUNS #</div>
+                        <div className="text-center">
+                          <div className="text-base font-semibold">
+                            D&B Credit Score
                           </div>
+                          <div className="text-sm text-gray-500">DUNS #</div>
                         </div>
+                      </div>
                       {/* Score table */}
                       <div className="flex-1 w-full overflow-x-auto">
                         <Table>
