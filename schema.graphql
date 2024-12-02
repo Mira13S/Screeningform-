@@ -7,6 +7,11 @@ type Mutation {
   createProject(id: ID): Project!
   loginUser(email: String!, password: String!): AuthPayload!
   registerUser(email: String!, name: String!, password: String!): User!
+  resetPassword(
+    confirmPassword: String!
+    email: String!
+    newPassword: String!
+  ): ResetPasswordPayload!
 }
 
 type Project {
@@ -16,7 +21,14 @@ type Project {
 }
 
 type Query {
+  _empty: String
+  getAllUsers: [User!]!
   projects(id: ID, name: String): [Project!]
+}
+
+type ResetPasswordPayload {
+  message: String
+  success: Boolean!
 }
 
 type User {

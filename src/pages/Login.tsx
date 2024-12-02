@@ -42,10 +42,12 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
+
   const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
+
   const [showPassword, setShowPassword] = useState(false);
 
   const [loginUser, { loading, error }] = useMutation(LOGIN_MUTATION);
@@ -60,10 +62,14 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(e);
     try {
       const { email, password } = formData;
       setIsLoading(true);
       const res = await loginUser({ variables: { email, password } });
+      console.log("Loading" + loading);
+      console.log("Error" + error);
+      console.log(res);
       console.log("authtoken", res.data.loginUser.token || "");
       localStorage.setItem("authToken", res.data.loginUser.token || "");
       toast({
@@ -72,12 +78,19 @@ export default function LoginPage() {
       });
 
       navigation("/test");
-    } catch (e) {
-      console.log(e);
+    } catch (e: any) {
+      const errorMessage = e.message || "An error occurred during login";
+
       toast({
-        title: "Invalid credentials",
+        title: errorMessage,
         variant: "default",
       });
+      // console.log(error);
+      // console.log(e);
+      // // toast({
+      //   title: "Invalid credentials",
+      //   variant: "default",
+      // });
     } finally {
       setIsLoading(false);
     }
@@ -157,11 +170,17 @@ export default function LoginPage() {
             </Button>
           </form>
         </CardContent>
-        <CardFooter className="flex justify-center">
+        <CardFooter className="flex flex-col items-center space-y-2 w-full">
           <p className="text-sm text-gray-600">
             Don't have an account?{" "}
             <a href="/register" className="text-blue-600 hover:underline">
               Sign up
+            </a>
+          </p>
+          <p className="text-sm ml-5 text-gray-600">
+            Forgot Password?{" "}
+            <a href="/resetpassword" className="text-blue-600 hover:underline">
+              Reset Password
             </a>
           </p>
         </CardFooter>
