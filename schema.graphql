@@ -16,6 +16,8 @@ type Project {
 }
 
 type Query {
+  _empty: String
+  getAllUsers: [User!]!
   projects(id: ID, name: String): [Project!]
 }
 

@@ -28,6 +28,7 @@ import RiskDetails from "./pages/RiskDetails";
 import SettingsPage from "./pages/Settings";
 import ConflictDetails from "./pages/ConflictDetails";
 import { LandingPage } from "./pages/LandingPage";
+import Profile from "./pages/Profile";
 
 const client = new ApolloClient({
   // uri: "https://graphql.pomelosolutions.com",
@@ -64,6 +65,7 @@ const App: React.FC = () => (
         <Route element={<RiskDetails />} path="/riskdetails"></Route>
         <Route element={<SettingsPage />} path="/settings"></Route>
         <Route element={<ConflictDetails />} path="/conflictdetails"></Route>
+        <Route element={<Profile />} path="/profile"></Route>
       </Routes>
     </Router>
   </ApolloProvider>
