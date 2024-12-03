@@ -29,7 +29,7 @@ const IntakeForm = () => {
 
       {/* Main content with proper margin to prevent navbar overlap */}
       <div className="flex-1 flex flex-col min-w-0 lg:ml-64">
-        <Header  />
+        <Header />
 
         <div className="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden overflow-y-auto">
           <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
