@@ -122,10 +122,26 @@ export default function ResetPasswordPage() {
           variant: "default",
         });
       }
-    } catch (e) {
-      console.log(e);
+    } catch (e: any) {
+      let errorMessage = "An error occurred during singup";
+      // console.log("Erros:");
+      // console.log(e.graphQLErrors);
+      // console.log(e.graphQLErrors[0]);
+
+      if (e.graphQLErrors && e.graphQLErrors[0]) {
+        const errorDetails = e.graphQLErrors[0].extensions?.originalError || {};
+
+        console.log(errorDetails);
+
+        if (errorDetails.message === "Wrong Email") {
+          errorMessage =
+            "This email does not exist! Please enter a valid email ID";
+        } else {
+          errorMessage = e.graphQLErrors[0].message || errorMessage;
+        }
+      }
       toast({
-        title: "Error resetting password",
+        title: errorMessage,
         variant: "default",
       });
     } finally {

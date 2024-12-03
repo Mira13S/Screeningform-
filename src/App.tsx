@@ -31,7 +31,7 @@ import { LandingPage } from "./pages/LandingPage";
 import ToastContainer from "./pages/ToastContainer";
 
 const client = new ApolloClient({
-  // uri: "https://graphql.pomelosolutions.com",
+  //uri: "https://graphql.pomelosolutions.com",
   uri: "http://localhost:3600/graphql",
   cache: new InMemoryCache(),
 });

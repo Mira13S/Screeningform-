@@ -22,7 +22,9 @@ const ToastContainer: React.FC = () => {
             </button>
           </div>
           {toast.description && (
-            <div className="mt-2 text-sm text-gray-700">{toast.description}</div>
+            <div className="mt-2 text-sm text-gray-700">
+              {toast.description}
+            </div>
           )}
         </div>
       ))}
