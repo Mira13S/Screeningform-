@@ -101,24 +101,21 @@ export default function SignupPage() {
         variant: "default",
       });
       navigation("/login");
-
-    } 
-    catch (e: any) {
+    } catch (e: any) {
       let errorMessage = "An error occurred during singup";
       // console.log("Erros:");
       // console.log(e.graphQLErrors);
       // console.log(e.graphQLErrors[0]);
 
       if (e.graphQLErrors && e.graphQLErrors[0]) {
-
         const errorDetails = e.graphQLErrors[0].extensions?.originalError || {};
-       
+
         console.log(errorDetails);
-        
+
         if (errorDetails.message === "User exists") {
-          errorMessage = "User with this email already exists. Register with another email id!";
-        } 
-         else {
+          errorMessage =
+            "User with this email already exists. Register with another email id!";
+        } else {
           errorMessage = e.graphQLErrors[0].message || errorMessage;
         }
       }
@@ -126,7 +123,6 @@ export default function SignupPage() {
         title: errorMessage,
         variant: "default",
       });
-      
     } finally {
       setIsLoading(false);
     }

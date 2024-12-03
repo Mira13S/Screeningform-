@@ -67,7 +67,7 @@ const App: React.FC = () => (
         <Route element={<ConflictDetails />} path="/conflictdetails"></Route>
         <Route element={<Profile />} path="/profile"></Route>
       </Routes>
-      <ToastContainer/>
+      <ToastContainer />
     </Router>
   </ApolloProvider>
 );

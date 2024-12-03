@@ -78,27 +78,23 @@ export default function LoginPage() {
         variant: "default",
       });
 
-      navigation("/test");
-    } 
-    catch (e: any) {
+      navigation("/dashboard");
+    } catch (e: any) {
       let errorMessage = "An error occurred during login";
       // console.log("Erros:");
       // console.log(e.graphQLErrors);
       // console.log(e.graphQLErrors[0]);
 
       if (e.graphQLErrors && e.graphQLErrors[0]) {
-
         const errorDetails = e.graphQLErrors[0].extensions?.originalError || {};
-       
+
         console.log(errorDetails);
-        
+
         if (errorDetails.message === "User not found") {
           errorMessage = "No account found with this email. Please register.";
-        } 
-        else if (errorDetails.message === "Invalid password") {
+        } else if (errorDetails.message === "Invalid password") {
           errorMessage = "Incorrect password. Please try again.";
-        }
-         else {
+        } else {
           errorMessage = e.graphQLErrors[0].message || errorMessage;
         }
       }
@@ -106,7 +102,6 @@ export default function LoginPage() {
         title: errorMessage,
         variant: "default",
       });
-      
     } finally {
       setIsLoading(false);
     }
