@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import React from "react";
 import * as ReactDOM from "react-dom/client";
-
+import ToastContainer from "./pages/ToastContainer";
 /* Theme variables */
 import "./theme/variables.css";
 
@@ -67,6 +67,7 @@ const App: React.FC = () => (
         <Route element={<ConflictDetails />} path="/conflictdetails"></Route>
         <Route element={<Profile />} path="/profile"></Route>
       </Routes>
+      <ToastContainer/>
     </Router>
   </ApolloProvider>
 );

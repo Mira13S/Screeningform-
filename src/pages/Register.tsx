@@ -32,6 +32,7 @@ const REGISTER_MUTATION = gql(`
       id
       name
       email
+      
     }
   }
 `);
@@ -87,23 +88,45 @@ export default function SignupPage() {
     e.preventDefault();
     try {
       if (!validateForm()) return;
+
       const { name, email, password } = formData;
 
       setIsLoading(true);
       const res = await registerUser({ variables: { name, email, password } });
       console.log(res);
       console.log(formData);
+
       toast({
         title: "User Registered Successfully, Please Login",
         variant: "default",
       });
       navigation("/login");
-    } catch (e) {
-      console.log(e);
+
+    } 
+    catch (e: any) {
+      let errorMessage = "An error occurred during singup";
+      // console.log("Erros:");
+      // console.log(e.graphQLErrors);
+      // console.log(e.graphQLErrors[0]);
+
+      if (e.graphQLErrors && e.graphQLErrors[0]) {
+
+        const errorDetails = e.graphQLErrors[0].extensions?.originalError || {};
+       
+        console.log(errorDetails);
+        
+        if (errorDetails.message === "User exists") {
+          errorMessage = "User with this email already exists. Register with another email id!";
+        } 
+         else {
+          errorMessage = e.graphQLErrors[0].message || errorMessage;
+        }
+      }
       toast({
-        title: "Error while Signing Up",
+        title: errorMessage,
         variant: "default",
       });
+      
     } finally {
       setIsLoading(false);
     }

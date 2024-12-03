@@ -42,10 +42,12 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
+
   const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
+
   const [showPassword, setShowPassword] = useState(false);
 
   const [loginUser, { loading, error }] = useMutation(LOGIN_MUTATION);
@@ -60,24 +62,51 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(e);
     try {
       const { email, password } = formData;
       setIsLoading(true);
       const res = await loginUser({ variables: { email, password } });
+      console.log("Loading" + loading);
+      console.log("Error" + error);
+      console.log(res);
       console.log("authtoken", res.data.loginUser.token || "");
       localStorage.setItem("authToken", res.data.loginUser.token || "");
+
       toast({
         title: "Login Successfull",
         variant: "default",
       });
 
       navigation("/test");
-    } catch (e) {
-      console.log(e);
+    } 
+    catch (e: any) {
+      let errorMessage = "An error occurred during login";
+      // console.log("Erros:");
+      // console.log(e.graphQLErrors);
+      // console.log(e.graphQLErrors[0]);
+
+      if (e.graphQLErrors && e.graphQLErrors[0]) {
+
+        const errorDetails = e.graphQLErrors[0].extensions?.originalError || {};
+       
+        console.log(errorDetails);
+        
+        if (errorDetails.message === "User not found") {
+          errorMessage = "No account found with this email. Please register.";
+        } 
+        else if (errorDetails.message === "Invalid password") {
+          errorMessage = "Incorrect password. Please try again.";
+        }
+         else {
+          errorMessage = e.graphQLErrors[0].message || errorMessage;
+        }
+      }
       toast({
-        title: "Invalid credentials",
+        title: errorMessage,
         variant: "default",
       });
+      
     } finally {
       setIsLoading(false);
     }
@@ -123,7 +152,7 @@ export default function LoginPage() {
                   id="password"
                   name="password"
                   type={showPassword ? "text" : "password"}
-                  placeholder="********"
+                  placeholder="****"
                   value={formData.password}
                   onChange={handleInputChange}
                   aria-invalid={errors.password ? "true" : "false"}
@@ -157,11 +186,17 @@ export default function LoginPage() {
             </Button>
           </form>
         </CardContent>
-        <CardFooter className="flex justify-center">
+        <CardFooter className="flex flex-col items-center space-y-2 w-full">
           <p className="text-sm text-gray-600">
             Don't have an account?{" "}
             <a href="/register" className="text-blue-600 hover:underline">
               Sign up
+            </a>
+          </p>
+          <p className="text-sm ml-5 text-gray-600">
+            Forgot Password?{" "}
+            <a href="/resetpassword" className="text-blue-600 hover:underline">
+              Reset Password
             </a>
           </p>
         </CardFooter>
