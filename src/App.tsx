@@ -28,11 +28,13 @@ import RiskDetails from "./pages/RiskDetails";
 import SettingsPage from "./pages/Settings";
 import ConflictDetails from "./pages/ConflictDetails";
 import { LandingPage } from "./pages/LandingPage";
+
 import ToastContainer from "./pages/ToastContainer";
+import Profile from "./pages/Profile";
 
 const client = new ApolloClient({
-  //uri: "https://graphql.pomelosolutions.com",
-  uri: "http://localhost:3600/graphql",
+  uri: "https://graphql.pomelosolutions.com",
+  // uri: "http://localhost:3600/graphql",
   cache: new InMemoryCache(),
 });
 
@@ -66,6 +68,9 @@ const App: React.FC = () => (
         <Route element={<SettingsPage />} path="/settings"></Route>
         <Route element={<ConflictDetails />} path="/conflictdetails"></Route>
         <Route element={<ResetPassword />} path="/resetpassword"></Route>
+
+        <Route element={<Profile />} path="/profile"></Route>
+
       </Routes>
       <ToastContainer />
     </Router>

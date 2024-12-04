@@ -342,6 +342,7 @@ const ClientMatterChange = () => {
           {/* Header Information Table */}
           <div className="mb-6 overflow-x-auto">
             <div className="min-w-max bg-white rounded-lg shadow">
+
               <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
                 {/* Desktop Table */}
                 <div className="hidden lg:block">
@@ -486,6 +487,7 @@ const ClientMatterChange = () => {
                 </div>
               </div>
               </div>
+
             </div>
           </div>
 
