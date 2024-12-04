@@ -5,8 +5,20 @@ type AuthPayload {
 
 type Mutation {
   createProject(id: ID): Project!
+  editUserProfile(
+    email: String
+    id: Int!
+    name: String
+    profileImage: String
+  ): User!
+  generateSASURL(profileImage: String): String!
   loginUser(email: String!, password: String!): AuthPayload!
   registerUser(email: String!, name: String!, password: String!): User!
+  resetPassword(
+    confirmPassword: String!
+    email: String!
+    newPassword: String!
+  ): ResetPasswordPayload!
 }
 
 type Project {
@@ -18,12 +30,19 @@ type Project {
 type Query {
   _empty: String
   getAllUsers: [User!]!
+  getUser(id: Int!): User
   projects(id: ID, name: String): [Project!]
+}
+
+type ResetPasswordPayload {
+  message: String
+  success: Boolean!
 }
 
 type User {
   email: String!
-  id: ID!
+  id: Int!
   name: String!
   password: String!
+  profileImage: String
 }

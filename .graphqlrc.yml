@@ -5,7 +5,7 @@ projects:
       assumeValid: true
     schema:
       - https://graphql.pomelosolutions.com
-      # - test.gql
+      # - user.gql
       # - http://localhost:3600/graphql
     documents: src/**/*.tsx
     extensions:

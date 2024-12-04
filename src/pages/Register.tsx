@@ -77,6 +77,25 @@ export default function SignupPage() {
     if (formData.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters.";
       isValid = false;
+    } else if (!/[A-Z]/.test(formData.password)) {
+      newErrors.password =
+        "Password must contain at least one uppercase letter.";
+      isValid = false;
+    } else if (!/[a-z]/.test(formData.password)) {
+      newErrors.password =
+        "Password must contain at least one lowercase letter.";
+      isValid = false;
+    } else if (!/[0-9]/.test(formData.password)) {
+      newErrors.password = "Password must contain at least one number.";
+      isValid = false;
+    } else if (!/[@_]/.test(formData.password)) {
+      newErrors.password =
+        "Password must contain at least one special character (@ or _).";
+      isValid = false;
+    } else if (/[^a-zA-Z0-9@_]/.test(formData.password)) {
+      newErrors.password =
+        "Password can only contain letters, numbers, @, or _.";
+      isValid = false;
     }
 
     setErrors(newErrors);
@@ -91,8 +110,8 @@ export default function SignupPage() {
 
       setIsLoading(true);
       const res = await registerUser({ variables: { name, email, password } });
-      console.log(res);
-      console.log(formData);
+      //console.log(res);
+      //console.log(formData);
       toast({
         title: "User Registered Successfully, Please Login",
         variant: "default",

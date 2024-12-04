@@ -117,7 +117,7 @@ export default function ProfileSection() {
 
         const sasUrl = sasData?.generateSASURL;
         if (!sasUrl) throw new Error("Failed to generate SAS URL");
-        console.log("sasUrl" , sasUrl)
+        console.log("sasUrl", sasUrl);
 
         // Step 2: Upload the file to Azure Blob Storage
         const fileArrayBuffer = await selectedImage.arrayBuffer();
@@ -125,7 +125,7 @@ export default function ProfileSection() {
         await blockBlobClient.uploadData(fileArrayBuffer);
 
         profileImageName = sasUrl.split("?")[0]; // Use the blob URL without SAS token
-        console.log("img : ", profileImageName)
+        console.log("img : ", profileImageName);
       }
 
       // Step 3: Update user profile with new image URL
@@ -279,4 +279,3 @@ export default function ProfileSection() {
     </Card>
   );
 }
-
