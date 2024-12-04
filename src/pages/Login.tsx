@@ -71,6 +71,7 @@ export default function LoginPage() {
       console.log("Error" + error);
       console.log(res);
       console.log("authtoken", res.data.loginUser.token || "");
+      localStorage.setItem("userID", res.data.loginUser.user.id || "");
       localStorage.setItem("authToken", res.data.loginUser.token || "");
 
       toast({
