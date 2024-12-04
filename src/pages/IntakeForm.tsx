@@ -429,7 +429,7 @@ const IntakeForm = () => {
       conflicts: "low",
       clientNumber: "Pending",
       matterNumber: "Pending",
-      approval: "evaluation"
+      approval: "evaluation",
     },
     {
       request: "333333-M",
@@ -441,7 +441,7 @@ const IntakeForm = () => {
       conflicts: "none",
       clientNumber: "Active",
       matterNumber: "In Progress",
-      approval: "approved"
+      approval: "approved",
     },
     {
       request: "444444-L",
@@ -453,23 +453,23 @@ const IntakeForm = () => {
       conflicts: "moderate",
       clientNumber: "Review",
       matterNumber: "Pending Review",
-      approval: "pending"
-    }
+      approval: "pending",
+    },
   ];
 
   // Responsive table component
   const ResponsiveTable = () => {
     const tableHeaders = [
-      "Request", 
-      "Request Date", 
-      "Requester", 
-      "Responsible Attorney", 
-      "Client/Matter Name", 
-      "Risk", 
-      "Conflicts", 
-      "Client Number", 
-      "Matter Number", 
-      "Approval"
+      "Request",
+      "Request Date",
+      "Requester",
+      "Responsible Attorney",
+      "Client/Matter Name",
+      "Risk",
+      "Conflicts",
+      "Client Number",
+      "Matter Number",
+      "Approval",
     ];
 
     return (
@@ -482,7 +482,10 @@ const IntakeForm = () => {
                 <TableHeader>
                   <TableRow>
                     {tableHeaders.map((header, index) => (
-                      <TableHead key={index} className="border px-4 py-2 whitespace-nowrap text-center">
+                      <TableHead
+                        key={index}
+                        className="border px-4 py-2 whitespace-nowrap text-center"
+                      >
                         {header}
                       </TableHead>
                     ))}
@@ -491,19 +494,33 @@ const IntakeForm = () => {
                 <TableBody>
                   {tableData.map((row, index) => (
                     <TableRow key={index}>
-                      <TableCell className="border px-4 py-2 text-center">{row.request}</TableCell>
-                      <TableCell className="border px-4 py-2 text-center">{row.requestDate}</TableCell>
-                      <TableCell className="border px-4 py-2 text-center">{row.requester}</TableCell>
-                      <TableCell className="border px-4 py-2 text-center">{row.responsibleAttorney}</TableCell>
                       <TableCell className="border px-4 py-2 text-center">
-                        <div>{row.clientMatterName.split(',')[0]}</div>
-                        <div className="text-gray-500">{row.clientMatterName.split(',')[1]}</div>
+                        {row.request}
+                      </TableCell>
+                      <TableCell className="border px-4 py-2 text-center">
+                        {row.requestDate}
+                      </TableCell>
+                      <TableCell className="border px-4 py-2 text-center">
+                        {row.requester}
+                      </TableCell>
+                      <TableCell className="border px-4 py-2 text-center">
+                        {row.responsibleAttorney}
+                      </TableCell>
+                      <TableCell className="border px-4 py-2 text-center">
+                        <div>{row.clientMatterName.split(",")[0]}</div>
+                        <div className="text-gray-500">
+                          {row.clientMatterName.split(",")[1]}
+                        </div>
                       </TableCell>
                       <TableCell className="border px-4 py-2 text-center">
                         <StatusIcon type="risk" level={row.risk} size={24} />
                       </TableCell>
                       <TableCell className="border px-4 py-2 text-center">
-                        <StatusIcon type="conflicts" level={row.conflicts} size={24} />
+                        <StatusIcon
+                          type="conflicts"
+                          level={row.conflicts}
+                          size={24}
+                        />
                       </TableCell>
                       <TableCell className="border px-4 py-2 text-center">
                         <Badge variant="secondary">{row.clientNumber}</Badge>
@@ -512,7 +529,11 @@ const IntakeForm = () => {
                         <Badge variant="secondary">{row.matterNumber}</Badge>
                       </TableCell>
                       <TableCell className="border px-4 py-2 text-center">
-                        <StatusIcon type="approvals" level={row.approval} size={24} />
+                        <StatusIcon
+                          type="approvals"
+                          level={row.approval}
+                          size={24}
+                        />
                       </TableCell>
                     </TableRow>
                   ))}
@@ -528,19 +549,43 @@ const IntakeForm = () => {
             <Card key={index} className="w-full">
               <CardContent className="p-4">
                 {tableHeaders.map((header, headerIndex) => (
-                  <div key={headerIndex} className="flex justify-between border-b py-2 last:border-b-0">
-                    <span className="font-semibold text-gray-600">{header}:</span>
+                  <div
+                    key={headerIndex}
+                    className="flex justify-between border-b py-2 last:border-b-0"
+                  >
+                    <span className="font-semibold text-gray-600">
+                      {header}:
+                    </span>
                     <span className="text-right">
                       {header === "Request" && row.request}
                       {header === "Request Date" && row.requestDate}
                       {header === "Requester" && row.requester}
-                      {header === "Responsible Attorney" && row.responsibleAttorney}
+                      {header === "Responsible Attorney" &&
+                        row.responsibleAttorney}
                       {header === "Client/Matter Name" && row.clientMatterName}
-                      {header === "Risk" && <StatusIcon type="risk" level={row.risk} size={24} />}
-                      {header === "Conflicts" && <StatusIcon type="conflicts" level={row.conflicts} size={24} />}
-                      {header === "Client Number" && <Badge variant="secondary">{row.clientNumber}</Badge>}
-                      {header === "Matter Number" && <Badge variant="secondary">{row.matterNumber}</Badge>}
-                      {header === "Approval" && <StatusIcon type="approvals" level={row.approval} size={24} />}
+                      {header === "Risk" && (
+                        <StatusIcon type="risk" level={row.risk} size={24} />
+                      )}
+                      {header === "Conflicts" && (
+                        <StatusIcon
+                          type="conflicts"
+                          level={row.conflicts}
+                          size={24}
+                        />
+                      )}
+                      {header === "Client Number" && (
+                        <Badge variant="secondary">{row.clientNumber}</Badge>
+                      )}
+                      {header === "Matter Number" && (
+                        <Badge variant="secondary">{row.matterNumber}</Badge>
+                      )}
+                      {header === "Approval" && (
+                        <StatusIcon
+                          type="approvals"
+                          level={row.approval}
+                          size={24}
+                        />
+                      )}
                     </span>
                   </div>
                 ))}
@@ -580,9 +625,9 @@ const IntakeForm = () => {
               <Button variant="outline" size="sm" className="w-full">
                 Clone Matter
               </Button>
-              <Button 
-                variant="outline" 
-                size="sm" 
+              <Button
+                variant="outline"
+                size="sm"
                 className="w-full"
                 onClick={() => navigate("/")}
               >
@@ -633,7 +678,9 @@ const IntakeForm = () => {
                     </p>
 
                     <div className="space-y-4">
-                      <h3 className="font-semibold">Participating Timekeeper Information</h3>
+                      <h3 className="font-semibold">
+                        Participating Timekeeper Information
+                      </h3>
                       <div className="space-y-3">
                         <div>
                           <Label>Originating Attorney:</Label>

@@ -43,13 +43,17 @@ const ToastContainer: React.FC = () => {
             </button>
           </div>
           {toast.description && (
-            <div className="mt-2 text-sm text-gray-700">{toast.description}</div>
+            <div className="mt-2 text-sm text-gray-700">
+              {toast.description}
+            </div>
           )}
           {/* Progress Bar */}
           <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-300">
             <div
               className="h-full bg-blue-500 transition-all"
-              style={{ animation: `progress ${TOAST_AUTO_CLOSE_DELAY}ms linear` }}
+              style={{
+                animation: `progress ${TOAST_AUTO_CLOSE_DELAY}ms linear`,
+              }}
             />
           </div>
         </div>

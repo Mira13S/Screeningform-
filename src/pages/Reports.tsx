@@ -243,11 +243,17 @@ const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
                   <td className="px-4 py-2 text-center">{row.matterNumber}</td>
                   <td className="px-4 py-2 text-center">
                     {row.approval === "pending" ? (
-                      <MoreHorizontal className="inline text-gray-500" size={20} />
+                      <MoreHorizontal
+                        className="inline text-gray-500"
+                        size={20}
+                      />
                     ) : row.approval === "denied" ? (
                       <ThumbsDown className="inline text-red-500" size={20} />
                     ) : (
-                      <CheckCircle className="inline text-green-500" size={20} />
+                      <CheckCircle
+                        className="inline text-green-500"
+                        size={20}
+                      />
                     )}
                   </td>
                 </tr>
@@ -273,25 +279,33 @@ const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
               <tr className="border-b">
                 <th className="px-4 py-2 text-left">Request</th>
                 {data.map((row, index) => (
-                  <td key={index} className="px-4 py-2">{row.request}</td>
+                  <td key={index} className="px-4 py-2">
+                    {row.request}
+                  </td>
                 ))}
               </tr>
               <tr className="border-b">
                 <th className="px-4 py-2 text-left">Request Date</th>
                 {data.map((row, index) => (
-                  <td key={index} className="px-4 py-2">{row.requestDate}</td>
+                  <td key={index} className="px-4 py-2">
+                    {row.requestDate}
+                  </td>
                 ))}
               </tr>
               <tr className="border-b">
                 <th className="px-4 py-2 text-left">Requesting Attorney</th>
                 {data.map((row, index) => (
-                  <td key={index} className="px-4 py-2">{row.requestingAttorney}</td>
+                  <td key={index} className="px-4 py-2">
+                    {row.requestingAttorney}
+                  </td>
                 ))}
               </tr>
               <tr className="border-b">
                 <th className="px-4 py-2 text-left">Responsible Attorney</th>
                 {data.map((row, index) => (
-                  <td key={index} className="px-4 py-2">{row.responsibleAttorney}</td>
+                  <td key={index} className="px-4 py-2">
+                    {row.responsibleAttorney}
+                  </td>
                 ))}
               </tr>
               <tr className="border-b">
@@ -323,13 +337,17 @@ const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
               <tr className="border-b">
                 <th className="px-4 py-2 text-left">Client Number</th>
                 {data.map((row, index) => (
-                  <td key={index} className="px-4 py-2 text-center">{row.clientNumber}</td>
+                  <td key={index} className="px-4 py-2 text-center">
+                    {row.clientNumber}
+                  </td>
                 ))}
               </tr>
               <tr className="border-b">
                 <th className="px-4 py-2 text-left">Matter Number</th>
                 {data.map((row, index) => (
-                  <td key={index} className="px-4 py-2 text-center">{row.matterNumber}</td>
+                  <td key={index} className="px-4 py-2 text-center">
+                    {row.matterNumber}
+                  </td>
                 ))}
               </tr>
               <tr className="border-b">
@@ -337,11 +355,17 @@ const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
                 {data.map((row, index) => (
                   <td key={index} className="px-4 py-2 text-center">
                     {row.approval === "pending" ? (
-                      <MoreHorizontal className="inline text-gray-500" size={20} />
+                      <MoreHorizontal
+                        className="inline text-gray-500"
+                        size={20}
+                      />
                     ) : row.approval === "denied" ? (
                       <ThumbsDown className="inline text-red-500" size={20} />
                     ) : (
-                      <CheckCircle className="inline text-green-500" size={20} />
+                      <CheckCircle
+                        className="inline text-green-500"
+                        size={20}
+                      />
                     )}
                   </td>
                 ))}
@@ -363,7 +387,6 @@ const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
     </CardContent>
   </Card>
 );
-
 
 const Dashboard = () => {
   return (

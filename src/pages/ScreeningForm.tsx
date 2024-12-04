@@ -1,4 +1,4 @@
-//THIS Is DONE 
+//THIS Is DONE
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -106,14 +106,30 @@ const TopTable = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="font-semibold whitespace-nowrap px-6">Request</TableHead>
-                  <TableHead className="font-semibold whitespace-nowrap px-6">Request Date</TableHead>
-                  <TableHead className="font-semibold whitespace-nowrap px-6">Requester</TableHead>
-                  <TableHead className="font-semibold whitespace-nowrap px-6">Attorney</TableHead>
-                  <TableHead className="font-semibold whitespace-nowrap px-6">Client/Matter</TableHead>
-                  <TableHead className="font-semibold whitespace-nowrap px-6">Risk</TableHead>
-                  <TableHead className="font-semibold whitespace-nowrap px-6">Conflicts</TableHead>
-                  <TableHead className="font-semibold whitespace-nowrap px-6">Client Number</TableHead>
+                  <TableHead className="font-semibold whitespace-nowrap px-6">
+                    Request
+                  </TableHead>
+                  <TableHead className="font-semibold whitespace-nowrap px-6">
+                    Request Date
+                  </TableHead>
+                  <TableHead className="font-semibold whitespace-nowrap px-6">
+                    Requester
+                  </TableHead>
+                  <TableHead className="font-semibold whitespace-nowrap px-6">
+                    Attorney
+                  </TableHead>
+                  <TableHead className="font-semibold whitespace-nowrap px-6">
+                    Client/Matter
+                  </TableHead>
+                  <TableHead className="font-semibold whitespace-nowrap px-6">
+                    Risk
+                  </TableHead>
+                  <TableHead className="font-semibold whitespace-nowrap px-6">
+                    Conflicts
+                  </TableHead>
+                  <TableHead className="font-semibold whitespace-nowrap px-6">
+                    Client Number
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -126,9 +142,23 @@ const TopTable = () => {
                     <div>New Client</div>
                     <div className="text-gray-500 mt-1">New Matter</div>
                   </TableCell>
-                  <TableCell className="px-6 py-4" onClick={()=>navigate("/riskdetails")}><StatusIcon type="risk" level="medium" size={24} onClick={()=>navigate("/riskdetails")} /></TableCell>
-                  <TableCell className="px-6 py-4"><StatusIcon type="conflicts" level="low" size={24} /></TableCell>
-                  <TableCell className="px-6 py-4"><Badge variant="secondary">Pending</Badge></TableCell>
+                  <TableCell
+                    className="px-6 py-4"
+                    onClick={() => navigate("/riskdetails")}
+                  >
+                    <StatusIcon
+                      type="risk"
+                      level="medium"
+                      size={24}
+                      onClick={() => navigate("/riskdetails")}
+                    />
+                  </TableCell>
+                  <TableCell className="px-6 py-4">
+                    <StatusIcon type="conflicts" level="low" size={24} />
+                  </TableCell>
+                  <TableCell className="px-6 py-4">
+                    <Badge variant="secondary">Pending</Badge>
+                  </TableCell>
                 </TableRow>
                 <TableRow className="hover:bg-gray-50">
                   <TableCell className="px-6 py-4">222223-S</TableCell>
@@ -139,9 +169,15 @@ const TopTable = () => {
                     <div>Existing Client</div>
                     <div className="text-gray-500 mt-1">New Matter</div>
                   </TableCell>
-                  <TableCell className="px-6 py-4"><StatusIcon type="risk" level="low" size={24} /></TableCell>
-                  <TableCell className="px-6 py-4"><StatusIcon type="conflicts" level="none" size={24} /></TableCell>
-                  <TableCell className="px-6 py-4"><Badge variant="secondary">Pending</Badge></TableCell>
+                  <TableCell className="px-6 py-4">
+                    <StatusIcon type="risk" level="low" size={24} />
+                  </TableCell>
+                  <TableCell className="px-6 py-4">
+                    <StatusIcon type="conflicts" level="none" size={24} />
+                  </TableCell>
+                  <TableCell className="px-6 py-4">
+                    <Badge variant="secondary">Pending</Badge>
+                  </TableCell>
                 </TableRow>
                 <TableRow className="hover:bg-gray-50">
                   <TableCell className="px-6 py-4">222224-S</TableCell>
@@ -152,9 +188,15 @@ const TopTable = () => {
                     <div>New Client</div>
                     <div className="text-gray-500 mt-1">New Matter</div>
                   </TableCell>
-                  <TableCell className="px-6 py-4"><StatusIcon type="risk" level="high" size={24} /></TableCell>
-                  <TableCell className="px-6 py-4"><StatusIcon type="conflicts" level="medium" size={24} /></TableCell>
-                  <TableCell className="px-6 py-4"><Badge variant="secondary">Pending</Badge></TableCell>
+                  <TableCell className="px-6 py-4">
+                    <StatusIcon type="risk" level="high" size={24} />
+                  </TableCell>
+                  <TableCell className="px-6 py-4">
+                    <StatusIcon type="conflicts" level="medium" size={24} />
+                  </TableCell>
+                  <TableCell className="px-6 py-4">
+                    <Badge variant="secondary">Pending</Badge>
+                  </TableCell>
                 </TableRow>
                 <TableRow className="hover:bg-gray-50">
                   <TableCell className="px-6 py-4">222225-S</TableCell>
@@ -165,9 +207,15 @@ const TopTable = () => {
                     <div>Existing Client</div>
                     <div className="text-gray-500 mt-1">New Matter</div>
                   </TableCell>
-                  <TableCell className="px-6 py-4"><StatusIcon type="risk" level="none" size={24} /></TableCell>
-                  <TableCell className="px-6 py-4"><StatusIcon type="conflicts" level="low" size={24} /></TableCell>
-                  <TableCell className="px-6 py-4"><Badge variant="secondary">Pending</Badge></TableCell>
+                  <TableCell className="px-6 py-4">
+                    <StatusIcon type="risk" level="none" size={24} />
+                  </TableCell>
+                  <TableCell className="px-6 py-4">
+                    <StatusIcon type="conflicts" level="low" size={24} />
+                  </TableCell>
+                  <TableCell className="px-6 py-4">
+                    <Badge variant="secondary">Pending</Badge>
+                  </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
@@ -179,44 +227,64 @@ const TopTable = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="font-semibold whitespace-nowrap px-6">Field</TableHead>
-                <TableHead className="font-semibold whitespace-nowrap px-6">Request 1</TableHead>
-                <TableHead className="font-semibold whitespace-nowrap px-6">Request 2</TableHead>
-                <TableHead className="font-semibold whitespace-nowrap px-6">Request 3</TableHead>
-                <TableHead className="font-semibold whitespace-nowrap px-6">Request 4</TableHead>
+                <TableHead className="font-semibold whitespace-nowrap px-6">
+                  Field
+                </TableHead>
+                <TableHead className="font-semibold whitespace-nowrap px-6">
+                  Request 1
+                </TableHead>
+                <TableHead className="font-semibold whitespace-nowrap px-6">
+                  Request 2
+                </TableHead>
+                <TableHead className="font-semibold whitespace-nowrap px-6">
+                  Request 3
+                </TableHead>
+                <TableHead className="font-semibold whitespace-nowrap px-6">
+                  Request 4
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               <TableRow className="hover:bg-gray-50">
-                <TableHead className="font-semibold px-6 py-4">Request</TableHead>
+                <TableHead className="font-semibold px-6 py-4">
+                  Request
+                </TableHead>
                 <TableCell className="px-6 py-4">222222-S</TableCell>
                 <TableCell className="px-6 py-4">222223-S</TableCell>
                 <TableCell className="px-6 py-4">222224-S</TableCell>
                 <TableCell className="px-6 py-4">222225-S</TableCell>
               </TableRow>
               <TableRow className="hover:bg-gray-50">
-                <TableHead className="font-semibold px-6 py-4">Request Date</TableHead>
+                <TableHead className="font-semibold px-6 py-4">
+                  Request Date
+                </TableHead>
                 <TableCell className="px-6 py-4">12 May 2024</TableCell>
                 <TableCell className="px-6 py-4">14 May 2024</TableCell>
                 <TableCell className="px-6 py-4">15 May 2024</TableCell>
                 <TableCell className="px-6 py-4">16 May 2024</TableCell>
               </TableRow>
               <TableRow className="hover:bg-gray-50">
-                <TableHead className="font-semibold px-6 py-4">Requester</TableHead>
+                <TableHead className="font-semibold px-6 py-4">
+                  Requester
+                </TableHead>
                 <TableCell className="px-6 py-4">Smith, John</TableCell>
                 <TableCell className="px-6 py-4">Johnson, Sarah</TableCell>
                 <TableCell className="px-6 py-4">Brown, David</TableCell>
                 <TableCell className="px-6 py-4">Wilson, Emma</TableCell>
               </TableRow>
               <TableRow className="hover:bg-gray-50">
-                <TableHead className="font-semibold px-6 py-4">Attorney</TableHead>
+                <TableHead className="font-semibold px-6 py-4">
+                  Attorney
+                </TableHead>
                 <TableCell className="px-6 py-4">Associate-Aaron</TableCell>
                 <TableCell className="px-6 py-4">Partner-Michael</TableCell>
                 <TableCell className="px-6 py-4">Partner-Emily</TableCell>
                 <TableCell className="px-6 py-4">Associate-James</TableCell>
               </TableRow>
               <TableRow className="hover:bg-gray-50">
-                <TableHead className="font-semibold px-6 py-4">Client/Matter</TableHead>
+                <TableHead className="font-semibold px-6 py-4">
+                  Client/Matter
+                </TableHead>
                 <TableCell className="px-6 py-4">
                   <div>New Client</div>
                   <div className="text-gray-500 mt-1">New Matter</div>
@@ -236,24 +304,104 @@ const TopTable = () => {
               </TableRow>
               <TableRow className="hover:bg-gray-50">
                 <TableHead className="font-semibold px-6 py-4">Risk</TableHead>
-                <TableCell className="px-6 py-4" onClick={()=> navigate("/riskdetails")}><StatusIcon type="risk" level="medium" size={24} onClick={()=> navigate("/riskdetails")}/></TableCell>
-                <TableCell className="px-6 py-4" onClick={()=> navigate("/riskdetails")}><StatusIcon type="risk" level="low" size={24} onClick={()=> navigate("/riskdetails")} /></TableCell>
-                <TableCell className="px-6 py-4" onClick={()=> navigate("/riskdetails")}><StatusIcon type="risk" level="high" size={24} onClick={()=> navigate("/riskdetails")}/></TableCell>
-                <TableCell className="px-6 py-4" onClick={()=> navigate("/riskdetails")}><StatusIcon type="risk" level="none" size={24} onClick={()=> navigate("/riskdetails")}/></TableCell>
+                <TableCell
+                  className="px-6 py-4"
+                  onClick={() => navigate("/riskdetails")}
+                >
+                  <StatusIcon
+                    type="risk"
+                    level="medium"
+                    size={24}
+                    onClick={() => navigate("/riskdetails")}
+                  />
+                </TableCell>
+                <TableCell
+                  className="px-6 py-4"
+                  onClick={() => navigate("/riskdetails")}
+                >
+                  <StatusIcon
+                    type="risk"
+                    level="low"
+                    size={24}
+                    onClick={() => navigate("/riskdetails")}
+                  />
+                </TableCell>
+                <TableCell
+                  className="px-6 py-4"
+                  onClick={() => navigate("/riskdetails")}
+                >
+                  <StatusIcon
+                    type="risk"
+                    level="high"
+                    size={24}
+                    onClick={() => navigate("/riskdetails")}
+                  />
+                </TableCell>
+                <TableCell
+                  className="px-6 py-4"
+                  onClick={() => navigate("/riskdetails")}
+                >
+                  <StatusIcon
+                    type="risk"
+                    level="none"
+                    size={24}
+                    onClick={() => navigate("/riskdetails")}
+                  />
+                </TableCell>
               </TableRow>
               <TableRow className="hover:bg-gray-50">
-                <TableHead className="font-semibold px-6 py-4">Conflicts</TableHead>
-                <TableCell className="px-6 py-4" ><StatusIcon type="conflicts" level="low" size={24} onClick={()=> navigate("/clientmatterdetails")} /></TableCell>
-                <TableCell className="px-6 py-4"><StatusIcon type="conflicts" level="none" size={24} onClick={()=> navigate("/clientmatterdetails")} /></TableCell>
-                <TableCell className="px-6 py-4"><StatusIcon type="conflicts" level="medium" size={24} onClick={()=> navigate("/clientmatterdetails")} /></TableCell>
-                <TableCell className="px-6 py-4"><StatusIcon type="conflicts" level="low" size={24} onClick={()=> navigate("/clientmatterdetails")} /></TableCell>
+                <TableHead className="font-semibold px-6 py-4">
+                  Conflicts
+                </TableHead>
+                <TableCell className="px-6 py-4">
+                  <StatusIcon
+                    type="conflicts"
+                    level="low"
+                    size={24}
+                    onClick={() => navigate("/clientmatterdetails")}
+                  />
+                </TableCell>
+                <TableCell className="px-6 py-4">
+                  <StatusIcon
+                    type="conflicts"
+                    level="none"
+                    size={24}
+                    onClick={() => navigate("/clientmatterdetails")}
+                  />
+                </TableCell>
+                <TableCell className="px-6 py-4">
+                  <StatusIcon
+                    type="conflicts"
+                    level="medium"
+                    size={24}
+                    onClick={() => navigate("/clientmatterdetails")}
+                  />
+                </TableCell>
+                <TableCell className="px-6 py-4">
+                  <StatusIcon
+                    type="conflicts"
+                    level="low"
+                    size={24}
+                    onClick={() => navigate("/clientmatterdetails")}
+                  />
+                </TableCell>
               </TableRow>
               <TableRow className="hover:bg-gray-50">
-                <TableHead className="font-semibold px-6 py-4">Client Number</TableHead>
-                <TableCell className="px-6 py-4"><Badge variant="secondary">Pending</Badge></TableCell>
-                <TableCell className="px-6 py-4"><Badge variant="secondary">Pending</Badge></TableCell>
-                <TableCell className="px-6 py-4"><Badge variant="secondary">Pending</Badge></TableCell>
-                <TableCell className="px-6 py-4"><Badge variant="secondary">Pending</Badge></TableCell>
+                <TableHead className="font-semibold px-6 py-4">
+                  Client Number
+                </TableHead>
+                <TableCell className="px-6 py-4">
+                  <Badge variant="secondary">Pending</Badge>
+                </TableCell>
+                <TableCell className="px-6 py-4">
+                  <Badge variant="secondary">Pending</Badge>
+                </TableCell>
+                <TableCell className="px-6 py-4">
+                  <Badge variant="secondary">Pending</Badge>
+                </TableCell>
+                <TableCell className="px-6 py-4">
+                  <Badge variant="secondary">Pending</Badge>
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>
@@ -262,7 +410,6 @@ const TopTable = () => {
     </div>
   );
 };
-
 
 const YesNoDropdown = ({ label }) => (
   <div className="space-y-2">
