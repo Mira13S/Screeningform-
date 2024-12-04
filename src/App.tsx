@@ -34,7 +34,7 @@ import Profile from "./pages/Profile";
 
 const client = new ApolloClient({
   uri: "https://graphql.pomelosolutions.com",
-  // uri: "http://localhost:3600/graphql",
+  //uri: "http://localhost:3600/graphql",
   cache: new InMemoryCache(),
 });
 
@@ -70,7 +70,6 @@ const App: React.FC = () => (
         <Route element={<ResetPassword />} path="/resetpassword"></Route>
 
         <Route element={<Profile />} path="/profile"></Route>
-
       </Routes>
       <ToastContainer />
     </Router>

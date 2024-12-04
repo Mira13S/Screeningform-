@@ -687,9 +687,8 @@ const RiskAssessment = () => {
         <Header />
         <div className="p-4 bg-white">
           <div className="mb-6">
-          <h2 className="text-xl font-bold mb-5">Risk Details</h2>
+            <h2 className="text-xl font-bold mb-5">Risk Details</h2>
             <div className="flex flex-col md:flex-row justify-between items-center mb-4 space-y-4 md:space-y-0">
-              
               <div className="flex flex-wrap gap-2 justify-end w-full md:w-auto">
                 <Button
                   variant="outline"
@@ -839,21 +838,21 @@ const RiskAssessment = () => {
                                   type="risk"
                                   level={item[key]}
                                   size={24}
-                                  onClick={()=>navigate("/riskdetails")}
+                                  onClick={() => navigate("/riskdetails")}
                                 />
                               ) : key === "conflicts" ? (
                                 <StatusIcon
                                   type="conflicts"
                                   level={item[key]}
                                   size={24}
-                                  onClick={()=>navigate("/conflictdetails")}
+                                  onClick={() => navigate("/conflictdetails")}
                                 />
                               ) : key === "approval" ? (
                                 <StatusIcon
                                   type="approvals"
                                   level={item[key]}
                                   size={24}
-                                  onClick={()=>navigate("/approvaldetails")}
+                                  onClick={() => navigate("/approvaldetails")}
                                 />
                               ) : (
                                 item[key]

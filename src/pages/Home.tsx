@@ -537,7 +537,7 @@ export function Home() {
                                   type="risk"
                                   level={item[key]}
                                   size={24}
-                                  onClick={()=>navigate("/riskdetails")}
+                                  onClick={() => navigate("/riskdetails")}
                                 />
                               ) : key === "conflicts" ? (
                                 <StatusIcon

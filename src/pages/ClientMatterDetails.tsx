@@ -445,22 +445,28 @@ const ClientMatterDetails = () => {
                             {item.attorney}
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          {item.clientNameMatterName}
+                            {item.clientNameMatterName}
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500" onClick={()=>navigate("/riskdetails")}>
+                          <td
+                            className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                            onClick={() => navigate("/riskdetails")}
+                          >
                             <StatusIcon
                               type="risk"
                               level={item.risk}
                               size={24}
-                              onClick={()=>navigate("/riskdetails")}
+                              onClick={() => navigate("/riskdetails")}
                             />
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500" onClick={()=>navigate("/conflictdetails")}>
+                          <td
+                            className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                            onClick={() => navigate("/conflictdetails")}
+                          >
                             <StatusIcon
                               type="conflicts"
                               level={item.conflicts}
                               size={24}
-                              onClick={()=>navigate("/conflictdetails")}
+                              onClick={() => navigate("/conflictdetails")}
                             />
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -473,12 +479,15 @@ const ClientMatterDetails = () => {
                               {item.matterNumber}
                             </Badge>
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500" onClick={()=>navigate("/approvaldetails")}>
+                          <td
+                            className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                            onClick={() => navigate("/approvaldetails")}
+                          >
                             <StatusIcon
                               type="approvals"
                               level={item.approval}
                               size={24}
-                              onClick={()=>navigate("/approvaldetails")}
+                              onClick={() => navigate("/approvaldetails")}
                             />
                           </td>
                         </tr>
@@ -489,64 +498,64 @@ const ClientMatterDetails = () => {
 
                 {/* Mobile Table */}
                 <div className="lg:hidden">
-                <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
-                  <table className="min-w-full divide-y divide-gray-300">
-                    <tbody className="divide-y divide-gray-200">
-                      {Object.keys(requestData[0]).map((key) => (
-                        <tr key={key} className="hover:bg-gray-50">
-                          <th
-                            scope="row"
-                            className="px-4 py-3 text-left text-sm font-semibold text-gray-900 bg-gray-50 whitespace-nowrap sticky top-0"
-                          >
-                            {key
-                              .replace(/([A-Z])/g, " $1")
-                              .replace(/^./, (str) => str.toUpperCase())}
-                          </th>
-                          {requestData.map((item, index) => (
-                            <td
-                              key={index}
-                              className="px-4 py-3 text-sm text-gray-500 whitespace-nowrap"
-                              onClick={() => {
-                                if (["request"].includes(key))
-                                  navigate("/clientmatterdetails");
-                                if (["risk"].includes(key))
-                                  navigate("/riskdetails");
-                                if (["conflicts"].includes(key))
-                                  navigate("/conflictdetails");
-                              }}
+                  <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
+                    <table className="min-w-full divide-y divide-gray-300">
+                      <tbody className="divide-y divide-gray-200">
+                        {Object.keys(requestData[0]).map((key) => (
+                          <tr key={key} className="hover:bg-gray-50">
+                            <th
+                              scope="row"
+                              className="px-4 py-3 text-left text-sm font-semibold text-gray-900 bg-gray-50 whitespace-nowrap sticky top-0"
                             >
-                              {key === "risk" ? (
-                                <StatusIcon
-                                  type="risk"
-                                  level={item[key]}
-                                  size={24}
-                                  onClick={()=>navigate("/riskdetails")}
-                                />
-                              ) : key === "conflicts" ? (
-                                <StatusIcon
-                                  type="conflicts"
-                                  level={item[key]}
-                                  size={24}
-                                  onClick={()=>navigate("/conflictdetails")}
-                                />
-                              ) : key === "approval" ? (
-                                <StatusIcon
-                                  type="approvals"
-                                  level={item[key]}
-                                  size={24}
-                                  onClick={()=>navigate("/approvaldetails")}
-                                />
-                              ) : (
-                                item[key]
-                              )}
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                              {key
+                                .replace(/([A-Z])/g, " $1")
+                                .replace(/^./, (str) => str.toUpperCase())}
+                            </th>
+                            {requestData.map((item, index) => (
+                              <td
+                                key={index}
+                                className="px-4 py-3 text-sm text-gray-500 whitespace-nowrap"
+                                onClick={() => {
+                                  if (["request"].includes(key))
+                                    navigate("/clientmatterdetails");
+                                  if (["risk"].includes(key))
+                                    navigate("/riskdetails");
+                                  if (["conflicts"].includes(key))
+                                    navigate("/conflictdetails");
+                                }}
+                              >
+                                {key === "risk" ? (
+                                  <StatusIcon
+                                    type="risk"
+                                    level={item[key]}
+                                    size={24}
+                                    onClick={() => navigate("/riskdetails")}
+                                  />
+                                ) : key === "conflicts" ? (
+                                  <StatusIcon
+                                    type="conflicts"
+                                    level={item[key]}
+                                    size={24}
+                                    onClick={() => navigate("/conflictdetails")}
+                                  />
+                                ) : key === "approval" ? (
+                                  <StatusIcon
+                                    type="approvals"
+                                    level={item[key]}
+                                    size={24}
+                                    onClick={() => navigate("/approvaldetails")}
+                                  />
+                                ) : (
+                                  item[key]
+                                )}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>
