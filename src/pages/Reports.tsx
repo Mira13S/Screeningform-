@@ -269,7 +269,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
               <tr className="border-b">
                 <th className="px-4 py-2 text-left">Field</th>
                 {data.map((_, index) => (
-                  <th key={index} className="px-4 py-2 text-left">
+                  <th key={index} className="px-4 py-2 text-left ">
                     Request {index + 1}
                   </th>
                 ))}
