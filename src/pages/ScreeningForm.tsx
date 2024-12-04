@@ -160,7 +160,7 @@ const TopTable = () => {
                     <Badge variant="secondary">Pending</Badge>
                   </TableCell>
                 </TableRow>
-                <TableRow className="hover:bg-gray-50">
+                {/* <TableRow className="hover:bg-gray-50">
                   <TableCell className="px-6 py-4">222223-S</TableCell>
                   <TableCell className="px-6 py-4">14 May 2024</TableCell>
                   <TableCell className="px-6 py-4">Johnson, Sarah</TableCell>
@@ -216,7 +216,7 @@ const TopTable = () => {
                   <TableCell className="px-6 py-4">
                     <Badge variant="secondary">Pending</Badge>
                   </TableCell>
-                </TableRow>
+                </TableRow> */}
               </TableBody>
             </Table>
           </div>
@@ -233,7 +233,7 @@ const TopTable = () => {
                 <TableHead className="font-semibold whitespace-nowrap px-6">
                   Request 1
                 </TableHead>
-                <TableHead className="font-semibold whitespace-nowrap px-6">
+                {/* <TableHead className="font-semibold whitespace-nowrap px-6">
                   Request 2
                 </TableHead>
                 <TableHead className="font-semibold whitespace-nowrap px-6">
@@ -241,7 +241,7 @@ const TopTable = () => {
                 </TableHead>
                 <TableHead className="font-semibold whitespace-nowrap px-6">
                   Request 4
-                </TableHead>
+                </TableHead> */}
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -250,36 +250,36 @@ const TopTable = () => {
                   Request
                 </TableHead>
                 <TableCell className="px-6 py-4">222222-S</TableCell>
-                <TableCell className="px-6 py-4">222223-S</TableCell>
+                {/* <TableCell className="px-6 py-4">222223-S</TableCell>
                 <TableCell className="px-6 py-4">222224-S</TableCell>
-                <TableCell className="px-6 py-4">222225-S</TableCell>
+                <TableCell className="px-6 py-4">222225-S</TableCell> */}
               </TableRow>
               <TableRow className="hover:bg-gray-50">
                 <TableHead className="font-semibold px-6 py-4">
                   Request Date
                 </TableHead>
                 <TableCell className="px-6 py-4">12 May 2024</TableCell>
-                <TableCell className="px-6 py-4">14 May 2024</TableCell>
+                {/* <TableCell className="px-6 py-4">14 May 2024</TableCell>
                 <TableCell className="px-6 py-4">15 May 2024</TableCell>
-                <TableCell className="px-6 py-4">16 May 2024</TableCell>
+                <TableCell className="px-6 py-4">16 May 2024</TableCell> */}
               </TableRow>
               <TableRow className="hover:bg-gray-50">
                 <TableHead className="font-semibold px-6 py-4">
                   Requester
                 </TableHead>
                 <TableCell className="px-6 py-4">Smith, John</TableCell>
-                <TableCell className="px-6 py-4">Johnson, Sarah</TableCell>
+                {/* <TableCell className="px-6 py-4">Johnson, Sarah</TableCell>
                 <TableCell className="px-6 py-4">Brown, David</TableCell>
-                <TableCell className="px-6 py-4">Wilson, Emma</TableCell>
+                <TableCell className="px-6 py-4">Wilson, Emma</TableCell> */}
               </TableRow>
               <TableRow className="hover:bg-gray-50">
                 <TableHead className="font-semibold px-6 py-4">
                   Attorney
                 </TableHead>
                 <TableCell className="px-6 py-4">Associate-Aaron</TableCell>
-                <TableCell className="px-6 py-4">Partner-Michael</TableCell>
+                {/* <TableCell className="px-6 py-4">Partner-Michael</TableCell>
                 <TableCell className="px-6 py-4">Partner-Emily</TableCell>
-                <TableCell className="px-6 py-4">Associate-James</TableCell>
+                <TableCell className="px-6 py-4">Associate-James</TableCell> */}
               </TableRow>
               <TableRow className="hover:bg-gray-50">
                 <TableHead className="font-semibold px-6 py-4">
@@ -289,7 +289,7 @@ const TopTable = () => {
                   <div>New Client</div>
                   <div className="text-gray-500 mt-1">New Matter</div>
                 </TableCell>
-                <TableCell className="px-6 py-4">
+                {/* <TableCell className="px-6 py-4">
                   <div>Existing Client</div>
                   <div className="text-gray-500 mt-1">New Matter</div>
                 </TableCell>
@@ -300,7 +300,7 @@ const TopTable = () => {
                 <TableCell className="px-6 py-4">
                   <div>Existing Client</div>
                   <div className="text-gray-500 mt-1">New Matter</div>
-                </TableCell>
+                </TableCell> */}
               </TableRow>
               <TableRow className="hover:bg-gray-50">
                 <TableHead className="font-semibold px-6 py-4">Risk</TableHead>
@@ -315,7 +315,7 @@ const TopTable = () => {
                     onClick={() => navigate("/riskdetails")}
                   />
                 </TableCell>
-                <TableCell
+                {/* <TableCell
                   className="px-6 py-4"
                   onClick={() => navigate("/riskdetails")}
                 >
@@ -347,7 +347,7 @@ const TopTable = () => {
                     size={24}
                     onClick={() => navigate("/riskdetails")}
                   />
-                </TableCell>
+                </TableCell> */}
               </TableRow>
               <TableRow className="hover:bg-gray-50">
                 <TableHead className="font-semibold px-6 py-4">
@@ -361,7 +361,7 @@ const TopTable = () => {
                     onClick={() => navigate("/clientmatterdetails")}
                   />
                 </TableCell>
-                <TableCell className="px-6 py-4">
+                {/* <TableCell className="px-6 py-4">
                   <StatusIcon
                     type="conflicts"
                     level="none"
@@ -384,7 +384,7 @@ const TopTable = () => {
                     size={24}
                     onClick={() => navigate("/clientmatterdetails")}
                   />
-                </TableCell>
+                </TableCell> */}
               </TableRow>
               <TableRow className="hover:bg-gray-50">
                 <TableHead className="font-semibold px-6 py-4">
@@ -393,7 +393,7 @@ const TopTable = () => {
                 <TableCell className="px-6 py-4">
                   <Badge variant="secondary">Pending</Badge>
                 </TableCell>
-                <TableCell className="px-6 py-4">
+                {/* <TableCell className="px-6 py-4">
                   <Badge variant="secondary">Pending</Badge>
                 </TableCell>
                 <TableCell className="px-6 py-4">
@@ -401,7 +401,7 @@ const TopTable = () => {
                 </TableCell>
                 <TableCell className="px-6 py-4">
                   <Badge variant="secondary">Pending</Badge>
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             </TableBody>
           </Table>

@@ -45,8 +45,8 @@ const App: React.FC = () => (
   <ApolloProvider client={client}>
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route element={<Home />} path="/dashboard"></Route>
+        <Route path="/welcome" element={<LandingPage />} />
+        <Route element={<Home />} path="/"></Route>
         <Route element={<AboutUs />} path="/about"></Route>
 
         <Route element={<LoginPage />} path="/login"></Route>

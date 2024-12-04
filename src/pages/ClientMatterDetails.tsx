@@ -27,43 +27,7 @@ const requestData = [
     clientNumber: "Pending",
     matterNumber: "Pending",
     approval: "evaluation",
-  },
-  {
-    request: "222222-S",
-    requestDate: "12 May 2024",
-    requester: "Smith, John",
-    attorney: "Associate-Aaron",
-    clientNameMatterName: "Good Client 2024 General Matter",
-    risk: "medium",
-    conflicts: "low",
-    clientNumber: "Pending",
-    matterNumber: "Pending",
-    approval: "evaluation",
-  },
-  {
-    request: "222222-S",
-    requestDate: "12 May 2024",
-    requester: "Smith, John",
-    attorney: "Associate-Aaron",
-    clientNameMatterName: "Good Client 2024 General Matter",
-    risk: "medium",
-    conflicts: "low",
-    clientNumber: "Pending",
-    matterNumber: "Pending",
-    approval: "evaluation",
-  },
-  {
-    request: "222222-S",
-    requestDate: "12 May 2024",
-    requester: "Smith, John",
-    attorney: "Associate-Aaron",
-    clientNameMatterName: "Good Client 2024 General Matter",
-    risk: "medium",
-    conflicts: "low",
-    clientNumber: "Pending",
-    matterNumber: "Pending",
-    approval: "evaluation",
-  },
+  }
 ];
 
 const ClientMatterDetails = () => {
@@ -208,7 +172,7 @@ const ClientMatterDetails = () => {
                           <tr key={key} className="hover:bg-gray-50">
                             <th
                               scope="row"
-                              className="px-4 py-3 text-left text-sm font-semibold text-gray-900 bg-gray-50 whitespace-nowrap sticky top-0"
+                              className="px-4 py-3 text-[10px] text-left  font-semibold text-gray-900 bg-gray-50 whitespace-nowrap sticky top-0"
                             >
                               {key
                                 .replace(/([A-Z])/g, " $1")
@@ -217,7 +181,7 @@ const ClientMatterDetails = () => {
                             {requestData.map((item, index) => (
                               <td
                                 key={index}
-                                className="px-4 py-3 text-sm text-gray-500 whitespace-nowrap"
+                                className="px-4 py-3 text-[10px] text-gray-500 whitespace-nowrap"
                                 onClick={() => {
                                   if (["request"].includes(key))
                                     navigate("/clientmatterdetails");

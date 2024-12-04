@@ -504,8 +504,53 @@ export function Home() {
                 </div>
               </div>
 
-              {/* Mobile Table */}
               <div className="lg:hidden">
+                <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+                  <table className="min-w-full divide-y divide-gray-300">
+                    <thead className="bg-gray-50 sticky top-0 z-10">
+                      <tr>
+                        {[
+                          "Request",
+                         
+                          "Client Name Matter Name",
+                         
+                        ].map((header) => (
+                          <th
+                            key={header}
+                            scope="col"
+                            className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sticky top-0 bg-gray-50"
+                          >
+                            {header}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200 bg-white">
+                      {worklist.map((item, index) => (
+                        <tr key={index} className="hover:bg-gray-50">
+                          <td
+                            className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-blue-600 sm:pl-6 cursor-pointer"
+                            onClick={() => navigate("/clientmatterdetails")}
+                          >
+                            {item.request}
+                          </td>
+                         
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {item.clientNameMatterName}
+                          </td>
+                          
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+
+
+
+              {/* Mobile Table */}
+              {/* <div className="lg:hidden">
                 <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
                   <table className="min-w-full divide-y divide-gray-300">
                     <tbody className="divide-y divide-gray-200">
@@ -561,7 +606,7 @@ export function Home() {
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </main>
