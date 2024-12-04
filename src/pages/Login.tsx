@@ -67,9 +67,11 @@ export default function LoginPage() {
       const { email, password } = formData;
       setIsLoading(true);
       const res = await loginUser({ variables: { email, password } });
+
       console.log("Loading" + loading);
       console.log("Error" + error);
       console.log(res);
+
       console.log("authtoken", res.data.loginUser.token || "");
       localStorage.setItem("userID", res.data.loginUser.user.id || "");
       localStorage.setItem("authToken", res.data.loginUser.token || "");
@@ -99,10 +101,17 @@ export default function LoginPage() {
           errorMessage = e.graphQLErrors[0].message || errorMessage;
         }
       }
+
       toast({
         title: errorMessage,
         variant: "default",
       });
+      // console.log(error);
+      // console.log(e);
+      // // toast({
+      //   title: "Invalid credentials",
+      //   variant: "default",
+      // });
     } finally {
       setIsLoading(false);
     }

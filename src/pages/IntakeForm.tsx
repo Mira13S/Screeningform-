@@ -414,6 +414,58 @@ import Header from "@/components/Header";
 import { useNavigate } from "react-router-dom";
 import { StatusIcon } from "@/components/StatusIcon";
 
+const requestData = [
+  {
+    request: "222222-S",
+    requestDate: "12 May 2024",
+    requester: "Smith, John",
+    attorney: "Associate-Aaron",
+    clientNameMatterName: "Good Client 2024 General Matter",
+    risk: "medium",
+    conflicts: "low",
+    clientNumber: "Pending",
+    matterNumber: "Pending",
+    approval: "evaluation",
+  },
+  {
+    request: "222222-S",
+    requestDate: "12 May 2024",
+    requester: "Smith, John",
+    attorney: "Associate-Aaron",
+    clientNameMatterName: "Good Client 2024 General Matter",
+    risk: "medium",
+    conflicts: "low",
+    clientNumber: "Pending",
+    matterNumber: "Pending",
+    approval: "evaluation",
+  },
+  {
+    request: "222222-S",
+    requestDate: "12 May 2024",
+    requester: "Smith, John",
+    attorney: "Associate-Aaron",
+    clientNameMatterName: "Good Client 2024 General Matter",
+    risk: "medium",
+    conflicts: "low",
+    clientNumber: "Pending",
+    matterNumber: "Pending",
+    approval: "evaluation",
+  },
+  {
+    request: "222222-S",
+    requestDate: "12 May 2024",
+    requester: "Smith, John",
+    attorney: "Associate-Aaron",
+    clientNameMatterName: "Good Client 2024 General Matter",
+
+    risk: "medium",
+    conflicts: "low",
+    clientNumber: "Pending",
+    matterNumber: "Pending",
+    approval: "evaluation",
+  },
+];
+
 const IntakeForm = () => {
   const navigate = useNavigate();
 
@@ -638,6 +690,158 @@ const IntakeForm = () => {
 
           {/* Status Bar with Responsive Table */}
           <ResponsiveTable />
+          {/* Status Bar */}
+          <div className="mb-6 overflow-x-auto">
+            <div className="min-w-max bg-white rounded-lg shadow">
+              <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
+                {/* Desktop Table */}
+                <div className="hidden lg:block">
+                  <table className="min-w-full divide-y divide-gray-300">
+                    <thead className="bg-gray-50 sticky top-0 z-10">
+                      <tr>
+                        {[
+                          "Request",
+                          "Request Date",
+                          "Requester",
+                          "Attorney",
+                          "Client/Matter",
+                          "Risk",
+                          "Conflicts",
+                          "Client Number",
+                          "Matter Number",
+                          "Approval",
+                        ].map((header) => (
+                          <th
+                            key={header}
+                            scope="col"
+                            className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sticky top-0 bg-gray-50"
+                          >
+                            {header}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200 bg-white">
+                      {requestData.map((item, index) => (
+                        <tr key={index} className="hover:bg-gray-50">
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-blue-600 sm:pl-6">
+                            {item.request}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {item.requestDate}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {item.requester}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {item.attorney}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {item.clientNameMatterName}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            <StatusIcon
+                              type="risk"
+                              level={item.risk}
+                              size={24}
+                              onClick={() => navigate("/riskdetails")}
+                            />
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            <StatusIcon
+                              type="conflicts"
+                              level={item.conflicts}
+                              size={24}
+                              onClick={() => navigate("/conflictdetails")}
+                            />
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            <Badge variant="secondary">
+                              {item.clientNumber}
+                            </Badge>
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            <Badge variant="secondary">
+                              {item.matterNumber}
+                            </Badge>
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            <StatusIcon
+                              type="approvals"
+                              level={item.approval}
+                              size={24}
+                            />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Mobile Table */}
+                <div className="lg:hidden">
+                  <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
+                    <table className="min-w-full divide-y divide-gray-300">
+                      <tbody className="divide-y divide-gray-200">
+                        {Object.keys(requestData[0]).map((key) => (
+                          <tr key={key} className="hover:bg-gray-50">
+                            <th
+                              scope="row"
+                              className="px-4 py-3 text-left text-sm font-semibold text-gray-900 bg-gray-50 whitespace-nowrap sticky top-0"
+                            >
+                              {key
+                                .replace(/([A-Z])/g, " $1")
+                                .replace(/^./, (str) => str.toUpperCase())}
+                            </th>
+                            {requestData.map((item, index) => (
+                              <td
+                                key={index}
+                                className="px-4 py-3 text-sm text-gray-500 whitespace-nowrap"
+                                onClick={() => {
+                                  if (["request"].includes(key))
+                                    navigate("/clientmatterdetails");
+                                  if (["risk"].includes(key))
+                                    navigate("/riskdetails");
+                                  if (["conflicts"].includes(key))
+                                    navigate("/conflictdetails");
+                                }}
+                              >
+                                {key === "risk" ? (
+                                  <StatusIcon
+                                    type="risk"
+                                    level={item[key]}
+                                    size={24}
+                                    onClick={() => navigate("/riskdetails")}
+                                  />
+                                ) : key === "conflicts" ? (
+                                  <StatusIcon
+                                    type="conflicts"
+                                    level={item[key]}
+                                    size={24}
+                                    onClick={() => navigate("/conflictdetails")}
+                                  />
+                                ) : key === "approval" ? (
+                                  <StatusIcon
+                                    type="approvals"
+                                    level={item[key]}
+                                    size={24}
+                                    onClick={() => navigate("/approvaldetails")}
+                                  />
+                                ) : (
+                                  item[key]
+                                )}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Left Column - Document Upload */}
