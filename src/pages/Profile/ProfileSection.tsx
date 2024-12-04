@@ -62,6 +62,7 @@ export default function ProfileSection() {
 
   console.log("token :", localStorage.getItem("userID"));
   let user = localStorage.getItem("userID");
+  console.log(user);
   const userID = parseInt(user, 10);
 
   const { data, loading, error } = useQuery(GET_USER, {

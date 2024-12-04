@@ -67,20 +67,40 @@ export default function LoginPage() {
       const { email, password } = formData;
       setIsLoading(true);
       const res = await loginUser({ variables: { email, password } });
-      // console.log("Loading" + loading);
-      // console.log("Error" + error);
-      // console.log(res);
+
+      console.log("Loading" + loading);
+      console.log("Error" + error);
+      console.log(res);
+
       console.log("authtoken", res.data.loginUser.token || "");
       localStorage.setItem("userID", res.data.loginUser.user.id || "");
       localStorage.setItem("authToken", res.data.loginUser.token || "");
+
       toast({
         title: "Login Successfull",
         variant: "default",
       });
 
-      navigation("/test");
+      navigation("/dashboard");
     } catch (e: any) {
-      const errorMessage = e.message || "An error occurred during login";
+      let errorMessage = "An error occurred during login";
+      // console.log("Erros:");
+      // console.log(e.graphQLErrors);
+      // console.log(e.graphQLErrors[0]);
+
+      if (e.graphQLErrors && e.graphQLErrors[0]) {
+        const errorDetails = e.graphQLErrors[0].extensions?.originalError || {};
+
+        console.log(errorDetails);
+
+        if (errorDetails.message === "User not found") {
+          errorMessage = "No account found with this email. Please register.";
+        } else if (errorDetails.message === "Invalid password") {
+          errorMessage = "Incorrect password. Please try again.";
+        } else {
+          errorMessage = e.graphQLErrors[0].message || errorMessage;
+        }
+      }
 
       toast({
         title: errorMessage,
@@ -137,7 +157,7 @@ export default function LoginPage() {
                   id="password"
                   name="password"
                   type={showPassword ? "text" : "password"}
-                  placeholder="********"
+                  placeholder="****"
                   value={formData.password}
                   onChange={handleInputChange}
                   aria-invalid={errors.password ? "true" : "false"}

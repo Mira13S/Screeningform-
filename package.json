@@ -57,7 +57,8 @@
     "react-router": "^5.3.4",
     "react-router-dom": "^6.28.0",
     "recharts": "^2.13.3",
-    "tailwind-merge": "^2.5.4",
+    "shadcn-ui": "^0.2.3",
+    "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {

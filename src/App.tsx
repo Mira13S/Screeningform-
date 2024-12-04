@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import React from "react";
 import * as ReactDOM from "react-dom/client";
-
+import ToastContainer from "./pages/ToastContainer";
 /* Theme variables */
 import "./theme/variables.css";
 
@@ -33,8 +33,10 @@ import ToastContainer from "./pages/ToastContainer";
 import Profile from "./pages/Profile";
 
 const client = new ApolloClient({
+
   uri: "https://graphql.pomelosolutions.com",
   //uri: "http://localhost:3600/graphql",
+
   cache: new InMemoryCache(),
 });
 

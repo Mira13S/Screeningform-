@@ -1,3 +1,4 @@
+//THIS IS DONE BY ME
 import React from "react";
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import { PieChart, Pie, Cell } from "recharts";
@@ -115,6 +116,83 @@ interface DataTableProps {
   title: string;
 }
 
+// const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
+//   <Card className="mt-6">
+//     <CardHeader>
+//       <CardTitle className="text-lg font-medium">{title}</CardTitle>
+//     </CardHeader>
+//     <CardContent>
+//       <div className="overflow-x-auto">
+//         <table className="w-full">
+//           <thead>
+//             <tr className="border-b">
+//               <th className="px-4 py-2 text-left">Request</th>
+//               <th className="px-4 py-2 text-left">Request Date</th>
+//               <th className="px-4 py-2 text-left">Requesting Attorney</th>
+//               <th className="px-4 py-2 text-left">Responsible Attorney</th>
+//               <th className="px-4 py-2 text-left">
+//                 Client Name
+//                 <br />
+//                 Matter Name
+//               </th>
+//               <th className="px-4 py-2 text-center">Risk</th>
+//               <th className="px-4 py-2 text-center">Conflicts</th>
+//               <th className="px-4 py-2 text-center">Client Number</th>
+//               <th className="px-4 py-2 text-center">Matter Number</th>
+//               <th className="px-4 py-2 text-center">Approval</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {data.map((row, index) => (
+//               <tr key={index} className="border-b">
+//                 <td className="px-4 py-2">{row.request}</td>
+//                 <td className="px-4 py-2">{row.requestDate}</td>
+//                 <td className="px-4 py-2">{row.requestingAttorney}</td>
+//                 <td className="px-4 py-2">{row.responsibleAttorney}</td>
+//                 <td className="px-4 py-2">
+//                   {row.clientName}
+//                   <br />
+//                   {row.matterName}
+//                 </td>
+//                 <td className="px-4 py-2 text-center">
+//                   <StatusIcon status={row.risk as Status} />
+//                 </td>
+//                 <td className="px-4 py-2 text-center">
+//                   <StatusIcon status={row.conflicts as Status} />
+//                 </td>
+//                 <td className="px-4 py-2 text-center">{row.clientNumber}</td>
+//                 <td className="px-4 py-2 text-center">{row.matterNumber}</td>
+//                 <td className="px-4 py-2 text-center">
+//                   {row.approval === "pending" ? (
+//                     <MoreHorizontal
+//                       className="inline text-gray-500"
+//                       size={20}
+//                     />
+//                   ) : row.approval === "denied" ? (
+//                     <ThumbsDown className="inline text-red-500" size={20} />
+//                   ) : (
+//                     <CheckCircle className="inline text-green-500" size={20} />
+//                   )}
+//                 </td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </div>
+//       <div className="flex justify-center mt-4 gap-2">
+//         {[1, 2, 3, 4, 5, "...", 20].map((page, index) => (
+//           <button
+//             key={index}
+//             className={`px-3 py-1 rounded ${page === 2 ? "bg-gray-200" : ""}`}
+//           >
+//             {page}
+//           </button>
+//         ))}
+//       </div>
+//     </CardContent>
+//   </Card>
+// );
+
 const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
   <Card className="mt-6">
     <CardHeader>
@@ -122,61 +200,179 @@ const DataTable: React.FC<DataTableProps> = ({ data, title }) => (
     </CardHeader>
     <CardContent>
       <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr className="border-b">
-              <th className="px-4 py-2 text-left">Request</th>
-              <th className="px-4 py-2 text-left">Request Date</th>
-              <th className="px-4 py-2 text-left">Requesting Attorney</th>
-              <th className="px-4 py-2 text-left">Responsible Attorney</th>
-              <th className="px-4 py-2 text-left">
-                Client Name
-                <br />
-                Matter Name
-              </th>
-              <th className="px-4 py-2 text-center">Risk</th>
-              <th className="px-4 py-2 text-center">Conflicts</th>
-              <th className="px-4 py-2 text-center">Client Number</th>
-              <th className="px-4 py-2 text-center">Matter Number</th>
-              <th className="px-4 py-2 text-center">Approval</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, index) => (
-              <tr key={index} className="border-b">
-                <td className="px-4 py-2">{row.request}</td>
-                <td className="px-4 py-2">{row.requestDate}</td>
-                <td className="px-4 py-2">{row.requestingAttorney}</td>
-                <td className="px-4 py-2">{row.responsibleAttorney}</td>
-                <td className="px-4 py-2">
-                  {row.clientName}
+        {/* Desktop View */}
+        <div className="hidden md:block">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Request</th>
+                <th className="px-4 py-2 text-left">Request Date</th>
+                <th className="px-4 py-2 text-left">Requesting Attorney</th>
+                <th className="px-4 py-2 text-left">Responsible Attorney</th>
+                <th className="px-4 py-2 text-left">
+                  Client Name
                   <br />
-                  {row.matterName}
-                </td>
-                <td className="px-4 py-2 text-center">
-                  <StatusIcon status={row.risk as Status} />
-                </td>
-                <td className="px-4 py-2 text-center">
-                  <StatusIcon status={row.conflicts as Status} />
-                </td>
-                <td className="px-4 py-2 text-center">{row.clientNumber}</td>
-                <td className="px-4 py-2 text-center">{row.matterNumber}</td>
-                <td className="px-4 py-2 text-center">
-                  {row.approval === "pending" ? (
-                    <MoreHorizontal
-                      className="inline text-gray-500"
-                      size={20}
-                    />
-                  ) : row.approval === "denied" ? (
-                    <ThumbsDown className="inline text-red-500" size={20} />
-                  ) : (
-                    <CheckCircle className="inline text-green-500" size={20} />
-                  )}
-                </td>
+                  Matter Name
+                </th>
+                <th className="px-4 py-2 text-center">Risk</th>
+                <th className="px-4 py-2 text-center">Conflicts</th>
+                <th className="px-4 py-2 text-center">Client Number</th>
+                <th className="px-4 py-2 text-center">Matter Number</th>
+                <th className="px-4 py-2 text-center">Approval</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {data.map((row, index) => (
+                <tr key={index} className="border-b">
+                  <td className="px-4 py-2">{row.request}</td>
+                  <td className="px-4 py-2">{row.requestDate}</td>
+                  <td className="px-4 py-2">{row.requestingAttorney}</td>
+                  <td className="px-4 py-2">{row.responsibleAttorney}</td>
+                  <td className="px-4 py-2">
+                    {row.clientName}
+                    <br />
+                    {row.matterName}
+                  </td>
+                  <td className="px-4 py-2 text-center">
+                    <StatusIcon status={row.risk as Status} />
+                  </td>
+                  <td className="px-4 py-2 text-center">
+                    <StatusIcon status={row.conflicts as Status} />
+                  </td>
+                  <td className="px-4 py-2 text-center">{row.clientNumber}</td>
+                  <td className="px-4 py-2 text-center">{row.matterNumber}</td>
+                  <td className="px-4 py-2 text-center">
+                    {row.approval === "pending" ? (
+                      <MoreHorizontal
+                        className="inline text-gray-500"
+                        size={20}
+                      />
+                    ) : row.approval === "denied" ? (
+                      <ThumbsDown className="inline text-red-500" size={20} />
+                    ) : (
+                      <CheckCircle
+                        className="inline text-green-500"
+                        size={20}
+                      />
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Mobile View */}
+        <div className="block md:hidden">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Field</th>
+                {data.map((_, index) => (
+                  <th key={index} className="px-4 py-2 text-left">
+                    Request {index + 1}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Request</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2">
+                    {row.request}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Request Date</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2">
+                    {row.requestDate}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Requesting Attorney</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2">
+                    {row.requestingAttorney}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Responsible Attorney</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2">
+                    {row.responsibleAttorney}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Client/Matter</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2">
+                    {row.clientName}
+                    <br />
+                    {row.matterName}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Risk</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2 text-center">
+                    <StatusIcon status={row.risk as Status} />
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Conflicts</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2 text-center">
+                    <StatusIcon status={row.conflicts as Status} />
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Client Number</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2 text-center">
+                    {row.clientNumber}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Matter Number</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2 text-center">
+                    {row.matterNumber}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b">
+                <th className="px-4 py-2 text-left">Approval</th>
+                {data.map((row, index) => (
+                  <td key={index} className="px-4 py-2 text-center">
+                    {row.approval === "pending" ? (
+                      <MoreHorizontal
+                        className="inline text-gray-500"
+                        size={20}
+                      />
+                    ) : row.approval === "denied" ? (
+                      <ThumbsDown className="inline text-red-500" size={20} />
+                    ) : (
+                      <CheckCircle
+                        className="inline text-green-500"
+                        size={20}
+                      />
+                    )}
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div className="flex justify-center mt-4 gap-2">
         {[1, 2, 3, 4, 5, "...", 20].map((page, index) => (
