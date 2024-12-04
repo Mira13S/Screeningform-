@@ -29,7 +29,6 @@ import SettingsPage from "./pages/Settings";
 import ConflictDetails from "./pages/ConflictDetails";
 import { LandingPage } from "./pages/LandingPage";
 
-import ToastContainer from "./pages/ToastContainer";
 import Profile from "./pages/Profile";
 
 const client = new ApolloClient({
