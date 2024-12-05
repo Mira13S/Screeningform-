@@ -23,17 +23,14 @@ const ToastContainer: React.FC = () => {
     };
   }, [toasts, dismiss]);
 
-
   return (
     <div className="fixed top-4 right-4 space-y-3 z-50">
       {toasts.map((toast) => (
         <div
           key={toast.id}
-
           className={`transition-transform transform ${
             toast.open ? "opacity-100 scale-100" : "opacity-0 scale-95"
           } bg-white shadow-md border border-gray-200 rounded-lg p-4 w-96 text-gray-900 relative`}
-
         >
           <div className="flex justify-between items-center">
             <strong className="text-lg font-semibold">{toast.title}</strong>
@@ -60,7 +57,6 @@ const ToastContainer: React.FC = () => {
               }}
             />
           </div>
-
         </div>
       ))}
     </div>

@@ -32,7 +32,6 @@ import { LandingPage } from "./pages/LandingPage";
 import Profile from "./pages/Profile";
 
 const client = new ApolloClient({
-
   uri: "https://graphql.pomelosolutions.com",
   //uri: "http://localhost:3600/graphql",
 

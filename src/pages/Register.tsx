@@ -116,7 +116,6 @@ export default function SignupPage() {
       console.log(res);
       console.log(formData);
 
-
       toast({
         title: "User Registered Successfully, Please Login",
         variant: "default",
