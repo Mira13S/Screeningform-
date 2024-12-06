@@ -19,6 +19,7 @@ type Mutation {
     email: String!
     newPassword: String!
   ): ResetPasswordPayload!
+  verifyEmail(token: String!): Boolean!
 }
 
 type Project {
@@ -45,4 +46,5 @@ type User {
   name: String!
   password: String!
   profileImage: String
+  verified: Boolean!
 }

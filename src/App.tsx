@@ -32,8 +32,12 @@ import { LandingPage } from "./pages/LandingPage";
 import Profile from "./pages/Profile";
 
 const client = new ApolloClient({
-  uri: "https://graphql.pomelosolutions.com",
+
+//  uri: "https://graphql.pomelosolutions.com",
   //uri: "http://localhost:3600/graphql",
+
+  //uri: https://graphql.pomelosolutions.com",
+  uri: "http://localhost:3600/graphql",
 
   cache: new InMemoryCache(),
 });
@@ -44,8 +48,8 @@ const App: React.FC = () => (
   <ApolloProvider client={client}>
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route element={<Home />} path="/dashboard"></Route>
+        <Route path="/welcome" element={<LandingPage />} />
+        <Route element={<Home />} path="/"></Route>
         <Route element={<AboutUs />} path="/about"></Route>
 
         <Route element={<LoginPage />} path="/login"></Route>
