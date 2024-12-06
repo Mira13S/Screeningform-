@@ -27,7 +27,7 @@ const requestData = [
     clientNumber: "Pending",
     matterNumber: "Pending",
     approval: "evaluation",
-  }
+  },
 ];
 
 const ClientMatterDetails = () => {

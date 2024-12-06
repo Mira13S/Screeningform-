@@ -4,9 +4,9 @@ projects:
       assumeValidSDL: true
       assumeValid: true
     schema:
-      - https://graphql.pomelosolutions.com
-      # - user.gql
-      # - http://localhost:3600/graphql
+      #- https://graphql.pomelosolutions.com
+      - user.gql
+      - http://localhost:3600/graphql
     documents: src/**/*.tsx
     extensions:
       codegen:

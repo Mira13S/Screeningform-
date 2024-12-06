@@ -509,20 +509,17 @@ export function Home() {
                   <table className="min-w-full divide-y divide-gray-300">
                     <thead className="bg-gray-50 sticky top-0 z-10">
                       <tr>
-                        {[
-                          "Request",
-                         
-                          "Client Name Matter Name",
-                         
-                        ].map((header) => (
-                          <th
-                            key={header}
-                            scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sticky top-0 bg-gray-50"
-                          >
-                            {header}
-                          </th>
-                        ))}
+                        {["Request", "Client Name Matter Name"].map(
+                          (header) => (
+                            <th
+                              key={header}
+                              scope="col"
+                              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sticky top-0 bg-gray-50"
+                            >
+                              {header}
+                            </th>
+                          ),
+                        )}
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200 bg-white">
@@ -534,20 +531,16 @@ export function Home() {
                           >
                             {item.request}
                           </td>
-                         
+
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                             {item.clientNameMatterName}
                           </td>
-                          
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
               </div>
-              
-
-
 
               {/* Mobile Table */}
               {/* <div className="lg:hidden">
